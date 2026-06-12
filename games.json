@@ -1,61 +1,478 @@
 [
-  {"id":"subway-surfers","name":"Subway Surfers","description":"Dash through the subway and dodge the oncoming trains! Run, jump, and slide your way to high scores.","category":"running","url":"https://lagged.com/api/play2/subway-surfers/","thumbnail":"https://picsum.photos/seed/subway/400/250","featured":true},
-  {"id":"temple-run-2","name":"Temple Run 2","description":"Navigate perilous cliffs and zip lines as you escape the cursed temple.","category":"running","url":"https://lagged.com/api/play2/temple-run-2/","thumbnail":"https://picsum.photos/seed/temple/400/250"},
-  {"id":"moto-x3m","name":"Moto X3M","description":"Race your motorcycle through insane obstacle courses. Perform flips and stunts to beat the clock!","category":"racing","url":"https://lagged.com/api/play2/moto-x3m/","thumbnail":"https://picsum.photos/seed/moto3m/400/250","featured":true},
-  {"id":"moto-x3m-spooky","name":"Moto X3M Spooky Land","description":"The spooky edition of Moto X3M! Ride through haunted tracks on your motorcycle.","category":"racing","url":"https://lagged.com/api/play2/moto-x3m-spooky-land/","thumbnail":"https://picsum.photos/seed/spooky/400/250"},
-  {"id":"stickman-hook","name":"Stickman Hook","description":"Swing from hook to hook like a spider-man! Simple controls, addictive gameplay.","category":"action","url":"https://lagged.com/api/play2/stickman-hook/","thumbnail":"https://picsum.photos/seed/stickman/400/250"},
-  {"id":"candy-match","name":"Candy Match","description":"Match colorful candies to create combos and clear the board. Sweet puzzle fun!","category":"match3","url":"https://lagged.com/api/play2/candy-match/","thumbnail":"https://picsum.photos/seed/candy/400/250"},
-  {"id":"basketball-stars","name":"Basketball Stars","description":"Hit the court and shoot some hoops in this exciting basketball game!","category":"sports","url":"https://lagged.com/api/play2/basketball-stars/","thumbnail":"https://picsum.photos/seed/basketball/400/250"},
-  {"id":"soccer-random","name":"Soccer Random","description":"A fun and random soccer game with changing fields and players. Score to win!","category":"sports","url":"https://lagged.com/api/play2/soccer-random/","thumbnail":"https://picsum.photos/seed/soccer/400/250"},
-  {"id":"slope","name":"Slope","description":"Roll down the slope at high speed! Avoid obstacles and don't fall off the edge.","category":"arcade","url":"https://lagged.com/api/play2/slope/","thumbnail":"https://picsum.photos/seed/slope/400/250","featured":true},
-  {"id":"geometry-dash","name":"Geometry Dash","description":"Rhythm-based platforming! Jump and fly through dangerous passages and spiky obstacles.","category":"arcade","url":"https://lagged.com/api/play2/geometry-dash/","thumbnail":"https://picsum.photos/seed/geometry/400/250","featured":true},
-  {"id":"1v1-lol","name":"1v1.LOL","description":"Build defenses and battle opponents in this 1v1 shooting game!","category":"shooter","url":"https://lagged.com/api/play2/1v1-lol/","thumbnail":"https://picsum.photos/seed/1v1lol/400/250"},
-  {"id":"slither-io","name":"Slither.io","description":"Eat orbs to grow longer and become the biggest snake in the arena!","category":"io","url":"https://lagged.com/api/play2/slither-io/","thumbnail":"https://picsum.photos/seed/slither/400/250"},
-  {"id":"agar-io","name":"Agar.io","description":"Eat smaller cells and avoid being eaten. Can you become the biggest cell?","category":"io","url":"https://lagged.com/api/play2/agar-io/","thumbnail":"https://picsum.photos/seed/agario/400/250"},
-  {"id":"among-us","name":"Among Us Online","description":"Find the impostor! Work together to complete tasks on the spaceship.","category":"action","url":"https://lagged.com/api/play2/among-us/","thumbnail":"https://picsum.photos/seed/amongus/400/250"},
-  {"id":"minecraft-classic","name":"Minecraft Classic","description":"Build and explore in this classic block-building game. Place and break blocks freely!","category":"arcade","url":"https://lagged.com/api/play2/minecraft-classic/","thumbnail":"https://picsum.photos/seed/minecraft/400/250"},
-  {"id":"happy-wheels","name":"Happy Wheels","description":"Ragdoll physics madness! Race through obstacle courses with various characters.","category":"racing","url":"https://lagged.com/api/play2/happy-wheels/","thumbnail":"https://picsum.photos/seed/happywheels/400/250"},
-  {"id":"flappy-bird","name":"Flappy Bird","description":"Tap to fly through the pipes! Simple but insanely addictive.","category":"arcade","url":"https://lagged.com/api/play2/flappy-bird/","thumbnail":"https://picsum.photos/seed/flappy/400/250"},
-  {"id":"2048","name":"2048","description":"Slide numbered tiles to combine them and reach the 2048 tile!","category":"puzzle","url":"https://lagged.com/api/play2/2048/","thumbnail":"https://picsum.photos/seed/2048game/400/250"},
-  {"id":"tetris","name":"Tetris","description":"The classic block-stacking puzzle game! Rotate and place tetrominos to clear lines.","category":"puzzle","url":"https://lagged.com/api/play2/tetris/","thumbnail":"https://picsum.photos/seed/tetris/400/250"},
-  {"id":"crossy-road","name":"Crossy Road","description":"Why did the chicken cross the road? Find out in this endless arcade hopper!","category":"arcade","url":"https://lagged.com/api/play2/crossy-road/","thumbnail":"https://picsum.photos/seed/crossy/400/250"},
-  {"id":"fruit-ninja","name":"Fruit Ninja","description":"Slice fruits in half with your finger! Don't let them fall, and avoid bombs.","category":"action","url":"https://lagged.com/api/play2/fruit-ninja/","thumbnail":"https://picsum.photos/seed/fruitninja/400/250"},
-  {"id":"cut-the-rope","name":"Cut the Rope","description":"Feed candy to Om Nom! Cut ropes strategically to collect stars and complete levels.","category":"puzzle","url":"https://lagged.com/api/play2/cut-the-rope/","thumbnail":"https://picsum.photos/seed/cutrope/400/250"},
-  {"id":"angry-birds","name":"Angry Birds","description":"Launch birds at pig structures to destroy them! Use physics to your advantage.","category":"puzzle","url":"https://lagged.com/api/play2/angry-birds/","thumbnail":"https://picsum.photos/seed/angrybirds/400/250"},
-  {"id":"doodle-jump","name":"Doodle Jump","description":"Jump from platform to platform and climb as high as you can! Avoid aliens and monsters.","category":"arcade","url":"https://lagged.com/api/play2/doodle-jump/","thumbnail":"https://picsum.photos/seed/doodle/400/250"},
-  {"id":"run-3","name":"Run 3","description":"Run through space tunnels and defy gravity! Don't fall into the void.","category":"running","url":"https://lagged.com/api/play2/run-3/","thumbnail":"https://picsum.photos/seed/run3/400/250"},
-  {"id":"bubble-shooter","name":"Bubble Shooter","description":"Match 3 or more bubbles of the same color to pop them! Clear the board to win.","category":"puzzle","url":"https://lagged.com/api/play2/bubble-shooter/","thumbnail":"https://picsum.photos/seed/bubble/400/250"},
-  {"id":"8-ball-pool","name":"8 Ball Pool","description":"The classic pool game! Aim, shoot, and sink all your balls before your opponent.","category":"sports","url":"https://lagged.com/api/play2/8-ball-pool/","thumbnail":"https://picsum.photos/seed/pool8/400/250"},
-  {"id":"table-tennis","name":"Table Tennis Pro","description":"Fast-paced ping pong action! Serve, smash, and outplay your opponent.","category":"sports","url":"https://lagged.com/api/play2/table-tennis/","thumbnail":"https://picsum.photos/seed/tennis/400/250"},
-  {"id":"hill-climb-racing","name":"Hill Climb Racing","description":"Drive your vehicle through hilly terrains! Upgrade your car and reach the finish.","category":"racing","url":"https://lagged.com/api/play2/hill-climb-racing/","thumbnail":"https://picsum.photos/seed/hillclimb/400/250"},
-  {"id":"traffic-racer","name":"Traffic Racer","description":"Drive fast on the highway and overtake other cars! Endless racing fun.","category":"racing","url":"https://lagged.com/api/play2/traffic-racer/","thumbnail":"https://picsum.photos/seed/traffic/400/250"},
-  {"id":"paper-io","name":"Paper.io","description":"Claim as much territory as possible! Draw lines to capture ground and eliminate opponents.","category":"io","url":"https://lagged.com/api/play2/paper-io/","thumbnail":"https://picsum.photos/seed/paperio/400/250"},
-  {"id":"diep-io","name":"Diep.io","description":"Upgrade your tank and destroy shapes and other players! Shape-based .io shooter.","category":"io","url":"https://lagged.com/api/play2/diep-io/","thumbnail":"https://picsum.photos/seed/diep/400/250"},
-  {"id":"krunker-io","name":"Krunker.io","description":"Fast-paced pixel FPS! Jump, slide, and shoot your way to the top of the leaderboard.","category":"shooter","url":"https://lagged.com/api/play2/krunker-io/","thumbnail":"https://picsum.photos/seed/krunker/400/250"},
-  {"id":"shellshockers","name":"Shellshockers","description":"Egg-citing FPS! Play as an egg armed with weapons in this cracking multiplayer shooter.","category":"shooter","url":"https://lagged.com/api/play2/shellshockers/","thumbnail":"https://picsum.photos/seed/shellshock/400/250"},
-  {"id":"zombs-royale","name":"Zombs Royale.io","description":"2D battle royale! Drop in, loot weapons, and be the last survivor standing.","category":"io","url":"https://lagged.com/api/play2/zombs-royale/","thumbnail":"https://picsum.photos/seed/zombs/400/250"},
-  {"id":"skribbl-io","name":"Skribbl.io","description":"Draw and guess words in this multiplayer drawing game! Create private rooms with friends.","category":"io","url":"https://lagged.com/api/play2/skribbl-io/","thumbnail":"https://picsum.photos/seed/skribbl/400/250"},
-  {"id":"gartic-io","name":"Gartic.io","description":"Draw and guess words with players from around the world! Fun multiplayer drawing game.","category":"io","url":"https://lagged.com/api/play2/gartic-io/","thumbnail":"https://picsum.photos/seed/gartic/400/250"},
-  {"id":"mope-io","name":"Mope.io","description":"Evolve from a mouse to an elephant or dragon! Eat food and climb the food chain.","category":"io","url":"https://lagged.com/api/play2/mope-io/","thumbnail":"https://picsum.photos/seed/mope/400/250"},
-  {"id":"wormate-io","name":"Wormate.io","description":"Eat food and grow your worm! Sweet power-ups and cute graphics.","category":"io","url":"https://lagged.com/api/play2/wormate-io/","thumbnail":"https://picsum.photos/seed/wormate/400/250"},
-  {"id":"tank-trouble","name":"Tank Trouble","description":"Drive a tank through a maze and destroy enemy tanks! Single and multiplayer fun.","category":"action","url":"https://lagged.com/api/play2/tank-trouble/","thumbnail":"https://picsum.photos/seed/tanktrouble/400/250"},
-  {"id":"super-smash-flash","name":"Super Smash Flash 2","description":"The ultimate Smash Bros fan game! Battle with iconic characters across stages.","category":"action","url":"https://lagged.com/api/play2/super-smash-flash/","thumbnail":"https://picsum.photos/seed/smash/400/250"},
-  {"id":"fall-guys","name":"Fall Guys","description":"Compete in wacky obstacle courses! Be the last bean standing in this battle royale.","category":"action","url":"https://lagged.com/api/play2/fall-guys/","thumbnail":"https://picsum.photos/seed/fallguys/400/250"},
-  {"id":"stumble-guys","name":"Stumble Guys","description":"Knockdown royale! Run through obstacle courses and be the last guy standing.","category":"action","url":"https://lagged.com/api/play2/stumble-guys/","thumbnail":"https://picsum.photos/seed/stumble/400/250"},
-  {"id":"bad-ice-cream","name":"Bad Ice-Cream","description":"Control an ice cream character and freeze enemies! Collect all the fruit in each level.","category":"action","url":"https://lagged.com/api/play2/bad-ice-cream/","thumbnail":"https://picsum.photos/seed/badicecream/400/250"},
-  {"id":"violt-race","name":"Violot Race","description":"High-speed racing with cool cars and challenging tracks!","category":"racing","url":"https://lagged.com/api/play2/violt-race/","thumbnail":"https://picsum.photos/seed/violt/400/250"},
-  {"id":"rocket-soccer","name":"Rocket Soccer Derby","description":"Drive rocket-powered cars and score epic goals in this soccer derby!","category":"sports","url":"https://lagged.com/api/play2/rocket-soccer/","thumbnail":"https://picsum.photos/seed/rocketsoccer/400/250"},
-  {"id":"real-basketball","name":"Real Basketball","description":"Realistic basketball simulation! Shoot hoops and improve your skills.","category":"sports","url":"https://lagged.com/api/play2/real-basketball/","thumbnail":"https://picsum.photos/seed/rebball/400/250"},
-  {"id":"desktop-golf","name":"Desktop Golf","description":"Relaxing mini-golf right on your desktop! Simple controls, challenging holes.","category":"sports","url":"https://lagged.com/api/play2/desktop-golf/","thumbnail":"https://picsum.photos/seed/golf/400/250"},
-  {"id":"sudoku","name":"Sudoku Puzzle","description":"The classic number placement puzzle! Fill the grid with digits 1-9.","category":"puzzle","url":"https://lagged.com/api/play2/sudoku/","thumbnail":"https://picsum.photos/seed/sudoku/400/250"},
-  {"id":"solitaire","name":"Solitaire","description":"The classic card game! Arrange cards in descending order alternating colors.","category":"puzzle","url":"https://lagged.com/api/play2/solitaire/","thumbnail":"https://picsum.photos/seed/solitaire/400/250"},
-  {"id":"word-search","name":"Word Search","description":"Find hidden words in a grid of letters! Multiple categories and difficulty levels.","category":"puzzle","url":"https://lagged.com/api/play2/word-search/","thumbnail":"https://picsum.photos/seed/wordsearch/400/250"},
-  {"id":"bejeweled","name":"Bejeweled Clasic","description":"The original match-3 gem game! Swap gems to make matches and score points.","category":"match3","url":"https://lagged.com/api/play2/bejeweled/","thumbnail":"https://picsum.photos/seed/bejeweled/400/250"},
-  {"id":"farm-heroes","name":"Farm Heroes Saga","description":"Match crops to complete farm-tastic puzzles! From the makers of Candy Crush.","category":"match3","url":"https://lagged.com/api/play2/farm-heroes/","thumbnail":"https://picsum.photos/seed/farmheroes/400/250"},
-  {"id":"candy-crush","name":"Candy Crush Saga","description":"Match 3 candies in this sweet puzzle adventure! Thousands of levels to explore.","category":"match3","url":"https://lagged.com/api/play2/candy-crush/","thumbnail":"https://picsum.photos/seed/candycrush/400/250"},
-  {"id":"clash-of-clans","name":"Clash of Clans","description":"Build your village, train troops, and battle other players! Strategic base building.","category":"strategy","url":"https://lagged.com/api/play2/clash-of-clans/","thumbnail":"https://picsum.photos/seed/clashclans/400/250"},
-  {"id":"clash-royale","name":"Clash Royale","description":"Real-time strategy card battling! Deploy troops and destroy enemy towers.","category":"strategy","url":"https://lagged.com/api/play2/clash-royale/","thumbnail":"https://picsum.photos/seed/clashroyale/400/250"},
-  {"id":"lordz-io","name":"Lordz.io","description":"Build your medieval empire! Collect gold, build castles, and command armies.","category":"strategy","url":"https://lagged.com/api/play2/lordz-io/","thumbnail":"https://picsum.photos/seed/lordz/400/250"},
-  {"id":"roblox-web","name":"Roblox","description":"Create and play in immersive 3D worlds! Explore user-generated games and experiences.","category":"arcade","url":"https://lagged.com/api/play2/roblox/","thumbnail":"https://picsum.photos/seed/roblox/400/250"},
-  {"id":"plants-vs-zombies","name":"Plants vs Zombies","description":"Defend your garden from zombies with an army of plants! Strategic tower defense fun.","category":"strategy","url":"https://lagged.com/api/play2/plants-vs-zombies/","thumbnail":"https://picsum.photos/seed/pvz/400/250"}
+  {
+    "id": "subway-surfers",
+    "name": "Subway Surfers",
+    "description": "Dash through the subway and dodge the oncoming trains! Run, jump, and slide your way to high scores.",
+    "category": "running",
+    "url": "https://lagged.com/api/play2/subway-surfers/",
+    "thumbnail": "https://images.unsplash.com/photo-1476480862126-283b7905e692?w=400&h=250&fit=crop",
+    "featured": true
+  },
+  {
+    "id": "temple-run-2",
+    "name": "Temple Run 2",
+    "description": "Navigate perilous cliffs and zip lines as you escape the cursed temple.",
+    "category": "running",
+    "url": "https://lagged.com/api/play2/temple-run-2/",
+    "thumbnail": "https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "moto-x3m",
+    "name": "Moto X3M",
+    "description": "Race your motorcycle through insane obstacle courses. Perform flips and stunts to beat the clock!",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/moto-x3m/",
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop",
+    "featured": true
+  },
+  {
+    "id": "moto-x3m-spooky",
+    "name": "Moto X3M Spooky Land",
+    "description": "The spooky edition of Moto X3M! Ride through haunted tracks on your motorcycle.",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/moto-x3m-spooky-land/",
+    "thumbnail": "https://images.unsplash.com/photo-1558981806-ec5f85c285ca?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "stickman-hook",
+    "name": "Stickman Hook",
+    "description": "Swing from hook to hook like a spider-man! Simple controls, addictive gameplay.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/stickman-hook/",
+    "thumbnail": "https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "candy-match",
+    "name": "Candy Match",
+    "description": "Match colorful candies to create combos and clear the board. Sweet puzzle fun!",
+    "category": "match3",
+    "url": "https://lagged.com/api/play2/candy-match/",
+    "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "basketball-stars",
+    "name": "Basketball Stars",
+    "description": "Hit the court and shoot some hoops in this exciting basketball game!",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/basketball-stars/",
+    "thumbnail": "https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "soccer-random",
+    "name": "Soccer Random",
+    "description": "A fun and random soccer game with changing fields and players. Score to win!",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/soccer-random/",
+    "thumbnail": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "slope",
+    "name": "Slope",
+    "description": "Roll down the slope at high speed! Avoid obstacles and don't fall off the edge.",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/slope/",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop",
+    "featured": true
+  },
+  {
+    "id": "geometry-dash",
+    "name": "Geometry Dash",
+    "description": "Rhythm-based platforming! Jump and fly through dangerous passages and spiky obstacles.",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/geometry-dash/",
+    "thumbnail": "https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop",
+    "featured": true
+  },
+  {
+    "id": "1v1-lol",
+    "name": "1v1.LOL",
+    "description": "Build defenses and battle opponents in this 1v1 shooting game!",
+    "category": "shooter",
+    "url": "https://lagged.com/api/play2/1v1-lol/",
+    "thumbnail": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "slither-io",
+    "name": "Slither.io",
+    "description": "Eat orbs to grow longer and become the biggest snake in the arena!",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/slither-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "agar-io",
+    "name": "Agar.io",
+    "description": "Eat smaller cells and avoid being eaten. Can you become the biggest cell?",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/agar-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "among-us",
+    "name": "Among Us Online",
+    "description": "Find the impostor! Work together to complete tasks on the spaceship.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/among-us/",
+    "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "minecraft-classic",
+    "name": "Minecraft Classic",
+    "description": "Build and explore in this classic block-building game. Place and break blocks freely!",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/minecraft-classic/",
+    "thumbnail": "https://images.unsplash.com/photo-1556438096-2089a2a59595?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "happy-wheels",
+    "name": "Happy Wheels",
+    "description": "Ragdoll physics madness! Race through obstacle courses with various characters.",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/happy-wheels/",
+    "thumbnail": "https://images.unsplash.com/photo-1544636331-e301106ba6a3?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "flappy-bird",
+    "name": "Flappy Bird",
+    "description": "Tap to fly through the pipes! Simple but insanely addictive.",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/flappy-bird/",
+    "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "2048",
+    "name": "2048",
+    "description": "Slide numbered tiles to combine them and reach the 2048 tile!",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/2048/",
+    "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "tetris",
+    "name": "Tetris",
+    "description": "The classic block-stacking puzzle game! Rotate and place tetrominos to clear lines.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/tetris/",
+    "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "crossy-road",
+    "name": "Crossy Road",
+    "description": "Why did the chicken cross the road? Find out in this endless arcade hopper!",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/crossy-road/",
+    "thumbnail": "https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "fruit-ninja",
+    "name": "Fruit Ninja",
+    "description": "Slice fruits in half with your finger! Don't let them fall, and avoid bombs.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/fruit-ninja/",
+    "thumbnail": "https://images.unsplash.com/photo-1552820728-8b83bb6b2b28?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "cut-the-rope",
+    "name": "Cut the Rope",
+    "description": "Feed candy to Om Nom! Cut ropes strategically to collect stars and complete levels.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/cut-the-rope/",
+    "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "angry-birds",
+    "name": "Angry Birds",
+    "description": "Launch birds at pig structures to destroy them! Use physics to your advantage.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/angry-birds/",
+    "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "doodle-jump",
+    "name": "Doodle Jump",
+    "description": "Jump from platform to platform and climb as high as you can! Avoid aliens and monsters.",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/doodle-jump/",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "run-3",
+    "name": "Run 3",
+    "description": "Run through space tunnels and defy gravity! Don't fall into the void.",
+    "category": "running",
+    "url": "https://lagged.com/api/play2/run-3/",
+    "thumbnail": "https://images.unsplash.com/photo-1555695410-7b1dc6d7c5c0?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "bubble-shooter",
+    "name": "Bubble Shooter",
+    "description": "Match 3 or more bubbles of the same color to pop them! Clear the board to win.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/bubble-shooter/",
+    "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "8-ball-pool",
+    "name": "8 Ball Pool",
+    "description": "The classic pool game! Aim, shoot, and sink all your balls before your opponent.",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/8-ball-pool/",
+    "thumbnail": "https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "table-tennis",
+    "name": "Table Tennis Pro",
+    "description": "Fast-paced ping pong action! Serve, smash, and outplay your opponent.",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/table-tennis/",
+    "thumbnail": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "hill-climb-racing",
+    "name": "Hill Climb Racing",
+    "description": "Drive your vehicle through hilly terrains! Upgrade your car and reach the finish.",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/hill-climb-racing/",
+    "thumbnail": "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "traffic-racer",
+    "name": "Traffic Racer",
+    "description": "Drive fast on the highway and overtake other cars! Endless racing fun.",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/traffic-racer/",
+    "thumbnail": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "paper-io",
+    "name": "Paper.io",
+    "description": "Claim as much territory as possible! Draw lines to capture ground and eliminate opponents.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/paper-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "diep-io",
+    "name": "Diep.io",
+    "description": "Upgrade your tank and destroy shapes and other players! Shape-based .io shooter.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/diep-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "krunker-io",
+    "name": "Krunker.io",
+    "description": "Fast-paced pixel FPS! Jump, slide, and shoot your way to the top of the leaderboard.",
+    "category": "shooter",
+    "url": "https://lagged.com/api/play2/krunker-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1580327344181-c131031d0a71?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "shellshockers",
+    "name": "Shellshockers",
+    "description": "Egg-citing FPS! Play as an egg armed with weapons in this cracking multiplayer shooter.",
+    "category": "shooter",
+    "url": "https://lagged.com/api/play2/shellshockers/",
+    "thumbnail": "https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "zombs-royale",
+    "name": "Zombs Royale.io",
+    "description": "2D battle royale! Drop in, loot weapons, and be the last survivor standing.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/zombs-royale/",
+    "thumbnail": "https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "skribbl-io",
+    "name": "Skribbl.io",
+    "description": "Draw and guess words in this multiplayer drawing game! Create private rooms with friends.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/skribbl-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "gartic-io",
+    "name": "Gartic.io",
+    "description": "Draw and guess words with players from around the world! Fun multiplayer drawing game.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/gartic-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "mope-io",
+    "name": "Mope.io",
+    "description": "Evolve from a mouse to an elephant or dragon! Eat food and climb the food chain.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/mope-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "wormate-io",
+    "name": "Wormate.io",
+    "description": "Eat food and grow your worm! Sweet power-ups and cute graphics.",
+    "category": "io",
+    "url": "https://lagged.com/api/play2/wormate-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "tank-trouble",
+    "name": "Tank Trouble",
+    "description": "Drive a tank through a maze and destroy enemy tanks! Single and multiplayer fun.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/tank-trouble/",
+    "thumbnail": "https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "super-smash-flash",
+    "name": "Super Smash Flash 2",
+    "description": "The ultimate Smash Bros fan game! Battle with iconic characters across stages.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/super-smash-flash/",
+    "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "fall-guys",
+    "name": "Fall Guys",
+    "description": "Compete in wacky obstacle courses! Be the last bean standing in this battle royale.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/fall-guys/",
+    "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "stumble-guys",
+    "name": "Stumble Guys",
+    "description": "Knockdown royale! Run through obstacle courses and be the last guy standing.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/stumble-guys/",
+    "thumbnail": "https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "bad-ice-cream",
+    "name": "Bad Ice-Cream",
+    "description": "Control an ice cream character and freeze enemies! Collect all the fruit in each level.",
+    "category": "action",
+    "url": "https://lagged.com/api/play2/bad-ice-cream/",
+    "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "violt-race",
+    "name": "Violot Race",
+    "description": "High-speed racing with cool cars and challenging tracks!",
+    "category": "racing",
+    "url": "https://lagged.com/api/play2/violt-race/",
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "rocket-soccer",
+    "name": "Rocket Soccer Derby",
+    "description": "Drive rocket-powered cars and score epic goals in this soccer derby!",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/rocket-soccer/",
+    "thumbnail": "https://images.unsplash.com/photo-1517466787929-dc4377a1d0d4?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "real-basketball",
+    "name": "Real Basketball",
+    "description": "Realistic basketball simulation! Shoot hoops and improve your skills.",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/real-basketball/",
+    "thumbnail": "https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "desktop-golf",
+    "name": "Desktop Golf",
+    "description": "Relaxing mini-golf right on your desktop! Simple controls, challenging holes.",
+    "category": "sports",
+    "url": "https://lagged.com/api/play2/desktop-golf/",
+    "thumbnail": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "sudoku",
+    "name": "Sudoku Puzzle",
+    "description": "The classic number placement puzzle! Fill the grid with digits 1-9.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/sudoku/",
+    "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "solitaire",
+    "name": "Solitaire",
+    "description": "The classic card game! Arrange cards in descending order alternating colors.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/solitaire/",
+    "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "word-search",
+    "name": "Word Search",
+    "description": "Find hidden words in a grid of letters! Multiple categories and difficulty levels.",
+    "category": "puzzle",
+    "url": "https://lagged.com/api/play2/word-search/",
+    "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "bejeweled",
+    "name": "Bejeweled Clasic",
+    "description": "The original match-3 gem game! Swap gems to make matches and score points.",
+    "category": "match3",
+    "url": "https://lagged.com/api/play2/bejeweled/",
+    "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "farm-heroes",
+    "name": "Farm Heroes Saga",
+    "description": "Match crops to complete farm-tastic puzzles! From the makers of Candy Crush.",
+    "category": "match3",
+    "url": "https://lagged.com/api/play2/farm-heroes/",
+    "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "candy-crush",
+    "name": "Candy Crush Saga",
+    "description": "Match 3 candies in this sweet puzzle adventure! Thousands of levels to explore.",
+    "category": "match3",
+    "url": "https://lagged.com/api/play2/candy-crush/",
+    "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "clash-of-clans",
+    "name": "Clash of Clans",
+    "description": "Build your village, train troops, and battle other players! Strategic base building.",
+    "category": "strategy",
+    "url": "https://lagged.com/api/play2/clash-of-clans/",
+    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "clash-royale",
+    "name": "Clash Royale",
+    "description": "Real-time strategy card battling! Deploy troops and destroy enemy towers.",
+    "category": "strategy",
+    "url": "https://lagged.com/api/play2/clash-royale/",
+    "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "lordz-io",
+    "name": "Lordz.io",
+    "description": "Build your medieval empire! Collect gold, build castles, and command armies.",
+    "category": "strategy",
+    "url": "https://lagged.com/api/play2/lordz-io/",
+    "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "roblox-web",
+    "name": "Roblox",
+    "description": "Create and play in immersive 3D worlds! Explore user-generated games and experiences.",
+    "category": "arcade",
+    "url": "https://lagged.com/api/play2/roblox/",
+    "thumbnail": "https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop"
+  },
+  {
+    "id": "plants-vs-zombies",
+    "name": "Plants vs Zombies",
+    "description": "Defend your garden from zombies with an army of plants! Strategic tower defense fun.",
+    "category": "strategy",
+    "url": "https://lagged.com/api/play2/plants-vs-zombies/",
+    "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
+  }
 ]
