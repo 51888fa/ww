@@ -819,7 +819,7 @@
 
 <!-- HERO BANNER -->
 <section class="hero" id="heroSection">
-    <div class="hero-bg" id="heroBg" style="background-image:url('https://picsum.photos/seed/gamevault/1600/600')"></div>
+    <div class="hero-bg" id="heroBg" style="background-image:url('https://images.unsplash.com/photo-1542751376-adc38f487a38?w=1600&h=600&fit=crop')"></div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-particles" id="particles"></div>
     <div class="hero-content">
@@ -834,7 +834,7 @@
         </div>
         <div class="hero-image">
             <div class="hero-game-preview" id="heroPreview" onclick="playHeroFeatured()">
-                <img src="https://picsum.photos/seed/featured1/420/280" alt="Featured Game" id="heroPreviewImg">
+                <img src="https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=420&h=280&fit=crop" alt="Featured Game" id="heroPreviewImg">
                 <div class="play-overlay"><div class="play-circle">&#9654;</div></div>
             </div>
         </div>
@@ -931,6 +931,19 @@ let allGames = [];
 let currentCategory = 'all';
 let searchQuery = '';
 
+const catImages = {
+    "action": "https://images.unsplash.com/photo-1542751376-adc38f487a38?w=320&h=200&fit=crop",
+    "puzzle": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=320&h=200&fit=crop",
+    "racing": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=320&h=200&fit=crop",
+    "sports": "https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=320&h=200&fit=crop",
+    "arcade": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=320&h=200&fit=crop",
+    "shooter": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=320&h=200&fit=crop",
+    "io": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=320&h=200&fit=crop",
+    "strategy": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=320&h=200&fit=crop",
+    "running": "https://images.unsplash.com/photo-1476480862126-283b7905e692?w=320&h=200&fit=crop",
+    "match3": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=320&h=200&fit=crop"
+};
+
 const catConfig = {
     action: { emoji: '&#128165;', name: 'Action', img: 'action2' },
     puzzle: { emoji: '&#129513;', name: 'Puzzle', img: 'puzzle3' },
@@ -984,7 +997,7 @@ function buildCategoryCards() {
         const count = allGames.filter(g => g.category === cat).length;
         return `
         <div class="cat-card" onclick="selectCategory('${cat}')">
-            <div class="cat-card-bg" style="background-image:url('https://picsum.photos/seed/${cfg.img}/320/200')"></div>
+            <div class="cat-card-bg" style="background-image:url('${catImages[cat] || catImages.arcade}')"></div>
             <div class="cat-card-overlay"></div>
             <div class="cat-card-content">
                 <div class="cat-card-emoji">${cfg.emoji}</div>
