@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0e17;
+            --bg2: #111827;
+            --bg3: #1e293b;
+            --bg4: #334155;
+            --border: #2d3748;
+            --accent: #6366f1;
+            --accent2: #818cf8;
+            --accent-glow: rgba(99,102,241,0.3);
+            --green: #22c55e;
+            --red: #ef4444;
+            --yellow: #eab308;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --text3: #64748b;
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== LOGIN ===== */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+        }
+        .login-box h1 {
+            font-size: 24px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .login-box p {
+            text-align: center;
+            color: var(--text2);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text2);
+            margin-bottom: 6px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            width: 100%;
+        }
+        .btn-primary:hover { background: var(--accent2); }
+        .btn-green { background: var(--green); color: white; }
+        .btn-green:hover { opacity: 0.9; }
+        .btn-red { background: var(--red); color: white; padding: 6px 14px; font-size: 13px; }
+        .btn-red:hover { opacity: 0.9; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text2);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--text); }
+        .btn-sm { padding: 6px 14px; font-size: 13px; }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard { display: none; }
+        .dashboard.active { display: block; }
+
+        .topbar {
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .topbar h1 {
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .topbar h1 span { color: var(--accent2); }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .stat-card .label {
+            font-size: 13px;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+        .stat-card .value {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        .stat-card .value.accent { color: var(--accent2); }
+        .stat-card .value.green { color: var(--green); }
+        .stat-card .value.yellow { color: var(--yellow); }
+
+        .content-area {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .table-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .table-toolbar input {
+            padding: 8px 14px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 13px;
+            outline: none;
+            width: 260px;
+        }
+        .table-toolbar input:focus { border-color: var(--accent); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg3);
+        }
+        td {
+            padding: 12px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(99,102,241,0.05); }
+        .game-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .game-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--bg3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            overflow: hidden;
+        }
+        .game-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .badge-action { background: rgba(239,68,68,0.15); color: #f87171; }
+        .badge-puzzle { background: rgba(234,179,8,0.15); color: #fbbf24; }
+        .badge-racing { background: rgba(34,197,94,0.15); color: #4ade80; }
+        .badge-sports { background: rgba(6,182,212,0.15); color: #22d3ee; }
+        .badge-adventure { background: rgba(168,85,247,0.15); color: #c084fc; }
+        .badge-arcade { background: rgba(236,72,153,0.15); color: #f472b6; }
+        .badge-default { background: rgba(99,102,241,0.15); color: #818cf8; }
+        .featured-star { color: var(--yellow); }
+        .actions-cell {
+            display: flex;
+            gap: 6px;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            width: 100%;
+            max-width: 600px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            animation: modalIn 0.2s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .modal-header h3 { font-size: 18px; font-weight: 700; }
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg3);
+            color: var(--text2);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover { background: var(--red); color: white; }
+        .modal-body { padding: 24px; }
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 9999;
+            animation: toastIn 0.3s ease;
+            display: none;
+        }
+        .toast.active { display: block; }
+        .toast.success { background: var(--green); color: white; }
+        .toast.error { background: var(--red); color: white; }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            table { font-size: 13px; }
+            th, td { padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-box">
+        <h1>&#127918; Game<span style="color:var(--accent2)">Vault</span> Admin</h1>
+        <p>Enter your admin credentials to manage games</p>
+        <div class="form-group">
+            <label>GitHub Token</label>
+            <input type="password" id="loginToken" placeholder="ghp_xxxxxx">
+        </div>
+        <button class="btn btn-primary" onclick="doLogin()">Login</button>
+        <div id="loginError" style="color:var(--red);font-size:13px;margin-top:12px;text-align:center;display:none;">Invalid token</div>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+    <div class="topbar">
+        <div class="topbar-left">
+            <h1>&#127918; Game<span>Vault</span> Admin</h1>
+            <a href="/" class="btn btn-outline btn-sm">&#8592; View Site</a>
+        </div>
+        <div class="topbar-right">
+            <span style="font-size:13px;color:var(--text3);" id="lastSync"></span>
+            <button class="btn btn-outline btn-sm" onclick="syncFromGitHub()">Sync from GitHub</button>
+            <button class="btn btn-red btn-sm" onclick="doLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="label">Total Games</div>
+            <div class="value accent" id="statTotal">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Categories</div>
+            <div class="value green" id="statCategories">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Featured</div>
+            <div class="value yellow" id="statFeatured">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Last Updated</div>
+            <div class="value" style="font-size:16px;" id="statUpdated">-</div>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <div class="section-header">
+            <h2>Manage Games</h2>
+            <button class="btn btn-green" onclick="openAddModal()">+ Add Game</button>
+        </div>
+
+        <div class="table-wrap">
+            <div class="table-toolbar">
+                <input type="text" id="adminSearch" placeholder="Search games..." oninput="filterTable()">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Category</th>
+                        <th>Featured</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="gamesTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ADD/EDIT GAME MODAL -->
+<div class="modal-overlay" id="gameModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="modalTitle">Add Game</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="editIndex" value="-1">
+            <div class="form-group">
+                <label>Game Name *</label>
+                <input type="text" id="gameName" placeholder="e.g. Subway Surfers">
+            </div>
+            <div class="form-group">
+                <label>Game URL *</label>
+                <input type="text" id="gameUrl" placeholder="https://example.com/game.html">
+            </div>
+            <div class="form-group">
+                <label>Category *</label>
+                <select id="gameCategory">
+                    <option value="action">Action</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="racing">Racing</option>
+                    <option value="sports">Sports</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="shooting">Shooting</option>
+                    <option value="girls">Girls</option>
+                    <option value="multiplayer">Multiplayer</option>
+                    <option value="io">.io Games</option>
+                    <option value="idle">Idle</option>
+                    <option value="clicker">Clicker</option>
+                    <option value="simulation">Simulation</option>
+                    <option value="horror">Horror</option>
+                    <option value="defense">Defense</option>
+                    <option value="match3">Match 3</option>
+                    <option value="running">Running</option>
+                    <option value="physics">Physics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="gameDesc" placeholder="Short description of the game..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Thumbnail URL</label>
+                <input type="text" id="gameThumb" placeholder="https://example.com/thumb.jpg">
+            </div>
+            <div class="form-group">
+                <div class="checkbox-row">
+                    <input type="checkbox" id="gameFeatured">
+                    <label for="gameFeatured" style="margin:0;">Featured Game (shown on homepage hero)</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" style="width:auto;" onclick="saveGame()">Save Game</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const GITHUB_OWNER = '51888fa';
+const GITHUB_REPO = 'ok';
+const GITHUB_PATH = 'games.json';
+
+let GITHUB_TOKEN = '';
+let games = [];
+let isLoggedIn = false;
+
+// ===== AUTH =====
+async function doLogin() {
+    const token = document.getElementById('loginToken').value.trim();
+    if (!token) return;
+    // Verify token by fetching games.json from GitHub
+    try {
+        const resp = await fetch('https://api.github.com/repos/' + GITHUB_OWNER + '/' + GITHUB_REPO + '/contents/' + GITHUB_PATH, {
+            headers: { 'Authorization': 'token ' + token, 'User-Agent': 'GameVaultAdmin' }
+        });
+        if (!resp.ok) throw new Error('Invalid token');
+        GITHUB_TOKEN = token;
+        isLoggedIn = true;
+        localStorage.setItem('gv_token', token);
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('dashboard').classList.add('active');
+        loadGamesData();
+    } catch(e) {
+        document.getElementById('loginError').style.display = 'block';
+        setTimeout(() => document.getElementById('loginError').style.display = 'none', 3000);
+    }
+}
+
+function doLogout() {
+    isLoggedIn = false;
+    GITHUB_TOKEN = '';
+    localStorage.removeItem('gv_token');
+    document.getElementById('dashboard').classList.remove('active');
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('loginToken').value = '';
+}
+
+// Auto-login if token saved
+(function() {
+    const saved = localStorage.getItem('gv_token');
+    if (saved) {
+        document.getElementById('loginToken').value = saved;
+        doLogin();
+    }
+})();
+
+// ===== LOAD GAMES =====
+async function loadGamesData() {
+    try {
+        const resp = await fetch('games.json?t=' + Date.now());
+        if (!resp.ok) throw new Error('Failed');
+        games = await resp.json();
+        renderTable();
+        updateStats();
+    } catch(e) {
+        console.error(e);
+        showToast('Failed to load games data', 'error');
+    }
+}
+
+// ===== SYNC FROM GITHUB =====
+async function syncFromGitHub() {
+    try {
+        const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_PATH}`, {
+            headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'User-Agent': 'GameVaultAdmin' }
+        });
+        if (!resp.ok) throw new Error('GitHub API error');
+        const data = await resp.json();
+        games = JSON.parse(atob(data.content));
+        renderTable();
+        updateStats();
+        document.getElementById('lastSync').textContent = 'Synced just now';
+        showToast('Synced from GitHub successfully!', 'success');
+    } catch(e) {
+        console.error(e);
+        showToast('Failed to sync from GitHub', 'error');
+    }
+}
+
+// ===== SAVE TO GITHUB =====
+async function saveToGitHub() {
+    try {
+        // Get current SHA
+        const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_PATH}`, {
+            headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'User-Agent': 'GameVaultAdmin' }
+        });
+        if (!resp.ok) throw new Error('Failed to get SHA');
+        const data = await resp.json();
+        const sha = data.sha;
+
+        // Upload new content
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(games, null, 2))));
+        const putResp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_PATH}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': 'token ' + GITHUB_TOKEN,
+                'User-Agent': 'GameVaultAdmin',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'Update games.json via admin panel',
+                content: content,
+                sha: sha
+            })
+        });
+        if (!putResp.ok) throw new Error('Failed to upload');
+        const result = await putResp.json();
+        document.getElementById('lastSync').textContent = 'Saved ' + new Date().toLocaleTimeString();
+        showToast('Saved to GitHub! Site will update in 1-2 minutes.', 'success');
+        return true;
+    } catch(e) {
+        console.error(e);
+        showToast('Failed to save to GitHub: ' + e.message, 'error');
+        return false;
+    }
+}
+
+// ===== STATS =====
+function updateStats() {
+    document.getElementById('statTotal').textContent = games.length;
+    document.getElementById('statCategories').textContent = new Set(games.map(g => g.category)).size;
+    document.getElementById('statFeatured').textContent = games.filter(g => g.featured).length;
+    document.getElementById('statUpdated').textContent = new Date().toLocaleDateString();
+}
+
+// ===== RENDER TABLE =====
+function renderTable() {
+    const search = (document.getElementById('adminSearch').value || '').toLowerCase();
+    const filtered = games.filter(g => !search || g.name.toLowerCase().includes(search) || (g.category || '').toLowerCase().includes(search));
+
+    const tbody = document.getElementById('gamesTableBody');
+    if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--text3);padding:40px;">No games found</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = filtered.map((game, i) => {
+        const realIndex = games.indexOf(game);
+        const catBadge = `badge-${game.category || 'default'}`;
+        const catName = (game.category || 'other').charAt(0).toUpperCase() + (game.category || 'other').slice(1);
+        const thumb = game.thumbnail
+            ? `<img src="${game.thumbnail}" alt="" onerror="this.outerHTML='&#127918;'">`
+            : '&#127918;';
+        return `<tr>
+            <td>
+                <div class="game-name-cell">
+                    <div class="game-icon">${thumb}</div>
+                    <div>
+                        <div style="font-weight:600;">${escapeHtml(game.name)}</div>
+                        <div style="font-size:12px;color:var(--text3);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escapeHtml(game.description || '')}</div>
+                    </div>
+                </div>
+            </td>
+            <td><span class="badge ${catBadge}">${catName}</span></td>
+            <td>${game.featured ? '<span class="featured-star">&#11088;</span>' : '-'}</td>
+            <td>
+                <div class="actions-cell">
+                    <button class="btn btn-outline btn-sm" onclick="openEditModal(${realIndex})">Edit</button>
+                    <button class="btn btn-red" onclick="deleteGame(${realIndex})">Delete</button>
+                </div>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function filterTable() { renderTable(); }
+
+function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+}
+
+// ===== ADD/EDIT GAME =====
+function openAddModal() {
+    document.getElementById('modalTitle').textContent = 'Add Game';
+    document.getElementById('editIndex').value = -1;
+    document.getElementById('gameName').value = '';
+    document.getElementById('gameUrl').value = '';
+    document.getElementById('gameCategory').value = 'action';
+    document.getElementById('gameDesc').value = '';
+    document.getElementById('gameThumb').value = '';
+    document.getElementById('gameFeatured').checked = false;
+    document.getElementById('gameModal').classList.add('active');
+}
+
+function openEditModal(index) {
+    const game = games[index];
+    if (!game) return;
+    document.getElementById('modalTitle').textContent = 'Edit Game';
+    document.getElementById('editIndex').value = index;
+    document.getElementById('gameName').value = game.name || '';
+    document.getElementById('gameUrl').value = game.url || '';
+    document.getElementById('gameCategory').value = game.category || 'action';
+    document.getElementById('gameDesc').value = game.description || '';
+    document.getElementById('gameThumb').value = game.thumbnail || '';
+    document.getElementById('gameFeatured').checked = !!game.featured;
+    document.getElementById('gameModal').classList.add('active');
+}
+
+function closeModal() {
+    document.getElementById('gameModal').classList.remove('active');
+}
+
+function saveGame() {
+    const name = document.getElementById('gameName').value.trim();
+    const url = document.getElementById('gameUrl').value.trim();
+    const category = document.getElementById('gameCategory').value;
+    const description = document.getElementById('gameDesc').value.trim();
+    const thumbnail = document.getElementById('gameThumb').value.trim();
+    const featured = document.getElementById('gameFeatured').checked;
+    const editIndex = parseInt(document.getElementById('editIndex').value);
+
+    if (!name) { showToast('Game name is required', 'error'); return; }
+    if (!url) { showToast('Game URL is required', 'error'); return; }
+
+    const gameData = {
+        id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        name, url, category, description, thumbnail, featured
+    };
+
+    if (editIndex >= 0) {
+        games[editIndex] = gameData;
+    } else {
+        games.push(gameData);
+    }
+
+    renderTable();
+    updateStats();
+    closeModal();
+    saveToGitHub();
+}
+
+function deleteGame(index) {
+    const game = games[index];
+    if (!game) return;
+    if (!confirm(`Delete "${game.name}"? This cannot be undone.`)) return;
+    games.splice(index, 1);
+    renderTable();
+    updateStats();
+    saveToGitHub();
+}
+
+// ===== TOAST =====
+function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.className = 'toast ' + type + ' active';
+    setTimeout(() => { toast.className = 'toast'; }, 4000);
+}
+
+// ===== KEYBOARD =====
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+});
+</script>
+
+</body>
+</html>
