@@ -793,7 +793,65 @@
             .game-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
             .featured-side { flex-direction: column; }
         }
-    </style>
+    
+        /* ===== VAST AD OVERLAY ===== */
+        .vast-ad-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .vast-ad-overlay.active { display: flex; }
+        .vast-ad-container {
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+        .vast-ad-container video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+        }
+        .vast-ad-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,0,0,0.8);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 10;
+        }
+        .vast-skip-btn {
+            position: absolute;
+            bottom: 50px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 10;
+            display: none;
+        }
+        .vast-skip-btn.visible { display: block; }
+        .vast-skip-btn:hover { background: rgba(255,255,255,0.4); }
+        .vast-loading {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+</style>
+    <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css"/>
 </head>
 <body>
 
@@ -926,6 +984,8 @@
         <p>&copy; 2026 GameVault. All rights reserved. All games are property of their respective owners.</p>
     </div>
 </footer>
+
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
 
 <script>
 // ===== GAME DATA & STATE =====
@@ -1129,13 +1189,125 @@ function escapeHtml(str) {
 }
 
 // ===== PLAY GAME =====
+// ===== VAST AD STATE =====
+let _pendingGame = null;
+let _vastPlayer = null;
+let _vastAttempted = false;
+const VAST_TAG = "https://Octo25.me/ocean/creatives?zoneId=12668";
+const VAST_SKIP_SECONDS = 5;
+
 function playGame(game) {
     if (!game || !game.url) return;
+    _pendingGame = game;
+    if (!_vastAttempted) {
+        _vastAttempted = true;
+        tryPlayVastAd();
+    } else {
+        launchGame(game);
+    }
+}
+
+function tryPlayVastAd() {
+    const overlay = document.getElementById('vastAdOverlay');
+    const video = document.getElementById('vastVideo');
+    const skipBtn = document.getElementById('vastSkipBtn');
+    const loading = document.getElementById('vastLoading');
+    if (!video || typeof fluidPlayer === 'undefined') {
+        launchGame(_pendingGame);
+        return;
+    }
+    overlay.classList.add('active');
+    loading.style.display = 'block';
+    skipBtn.classList.remove('visible');
+    document.body.style.overflow = 'hidden';
+
+    try {
+        if (_vastPlayer) {
+            _vastPlayer.destroy();
+        }
+        _vastPlayer = fluidPlayer('vastVideo', {
+            layoutControls: {
+                primaryColor: '#6366f1',
+                playButtonShowing: true,
+                autoPlay: true,
+                mute: true,
+                fillToContainer: true,
+                controlBar: { autoHide: true }
+            },
+            vastOptions: {
+                adList: [{ roll: 'preRoll', vastTag: VAST_TAG }],
+                skipButtonCaption: 'Skip ad in [[seconds]]',
+                adTextPosition: 'top left',
+                adText: 'Advertisement',
+                vastTimeout: 6000,
+                adCTAText: '',
+                adClickable: false
+            },
+            onBeforeXMLHttpRequestOpen: function(request) { return request; }
+        });
+
+        // Auto-skip after timeout if ad fails
+        setTimeout(function() {
+            if (overlay.classList.contains('active')) {
+                closeVastAndPlay();
+            }
+        }, 10000);
+
+        // Show skip button after N seconds
+        let skipTimer = setTimeout(function() {
+            skipBtn.classList.add('visible');
+        }, VAST_SKIP_SECONDS * 1000);
+
+        // Listen for ad end
+        video.addEventListener('ended', function onEnded() {
+            video.removeEventListener('ended', onEnded);
+            clearTimeout(skipTimer);
+            closeVastAndPlay();
+        });
+
+        video.addEventListener('playing', function onPlaying() {
+            video.removeEventListener('playing', onPlaying);
+            loading.style.display = 'none';
+        });
+
+        // Start playback
+        video.play().catch(function() {
+            // Autoplay blocked, try muted
+            video.muted = true;
+            video.play().catch(function() {
+                clearTimeout(skipTimer);
+                closeVastAndPlay();
+            });
+        });
+
+    } catch(e) {
+        console.log('VAST init error:', e);
+        closeVastAndPlay();
+    }
+}
+
+function skipVastAd() {
+    const video = document.getElementById('vastVideo');
+    if (video) video.pause();
+    closeVastAndPlay();
+}
+
+function closeVastAndPlay() {
+    const overlay = document.getElementById('vastAdOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (_pendingGame) {
+        launchGame(_pendingGame);
+    }
+}
+
+function launchGame(game) {
     document.getElementById('modalTitle').textContent = game.name;
     document.getElementById('modalDesc').textContent = game.description || '';
     document.getElementById('gameFrame').src = game.url;
     document.getElementById('gameModal').classList.add('active');
     document.body.style.overflow = 'hidden';
+    _pendingGame = null;
 }
 
 function closeGame() {
@@ -1168,34 +1340,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGame(
 loadGames();
 </script>
 
-<script>
-(function(){
-    var videoEl = document.getElementById("vastVideo");
-    if(!videoEl || typeof fluidPlayer === "undefined") return;
-    try {
-        var fp = fluidPlayer("vastVideo", {
-            layoutControls: {
-                primaryColor: "#6366f1",
-                playButtonShowing: true,
-                autoPlay: false,
-                mute: true,
-                fillToContainer: true,
-                controlBar: { durationLabel: true },
-            },
-            vastOptions: {
-                adList: [
-                    { roll: "preRoll", vastTag: "https://Octo25.me/ocean/creatives?zoneId=12668" }
-                ],
-                skipButtonCaption: "Skip ad [[seconds]]",
-                adTextPosition: "top left",
-                adText: "Ad",
-                vastTimeout: 5000
-            }
-        });
-        window._vastPlayer = fp;
-    } catch(e) { console.log("VAST init error:", e); }
-})();
-</script>
+
 
 <script>
 (function(o, c, t, l, i) {
