@@ -11,10 +11,6 @@
 <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
 <link rel="apple-touch-icon" href="./assets/icon.svg">
 <title>工具箱</title>
-<!-- 广告平台脚本 -->
-<script async src="https://abe.ymmiyun.com/o.js" data-slot="2377029035902478992-39642"></script>
-<script async src="https://pl.octoclick.xyz/sdk.js" data-zone-id="12668"></script>
-<script async src="https://www.nap5k.com/sdk.js" data-zone="11123344"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
@@ -124,112 +120,7 @@ body {
 .tool-card.locked { opacity: 0.6; }
 .tool-card.locked::after { content: '🔒'; position: absolute; font-size: 14px; top: 8px; right: 8px; }
 
-/* ===== Ad Overlay ===== */
-.ad-overlay {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 100;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s;
-}
-.ad-overlay.active { opacity: 1; pointer-events: auto; }
-
-/* ===== Real Ad iframe overlay ===== */
-.ad-real-overlay {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #000;
-  z-index: 200;
-  display: flex; flex-direction: column;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s;
-}
-.ad-real-overlay.active { opacity: 1; pointer-events: auto; }
-.ad-real-close {
-  position: absolute; top: 12px; right: 12px;
-  z-index: 10;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  border: none;
-  color: #fff;
-  font-size: 22px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  backdrop-filter: blur(8px);
-}
-.ad-real-frame {
-  flex: 1; width: 100%;
-  border: none;
-}
-
-.ad-video-box {
-  width: 320px; height: 320px;
-  background: #111;
-  border-radius: 16px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.ad-video-content {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 12px;
-  z-index: 1;
-}
-.ad-video-content .ad-icon { font-size: 48px; }
-.ad-video-content .ad-title { color: #fff; font-size: 18px; font-weight: 700; }
-.ad-video-content .ad-sub { color: #999; font-size: 12px; }
-
-.ad-progress {
-  width: 280px; height: 4px;
-  background: #333; border-radius: 2px;
-  overflow: hidden;
-}
-.ad-progress-bar {
-  height: 100%; background: var(--teal-700);
-  border-radius: 2px;
-  transition: width 0.1s linear;
-}
-
-.ad-timer {
-  color: #fff; font-size: 24px; font-weight: 700;
-}
-
-.ad-buttons { display: flex; gap: 12px; margin-top: 8px; }
-.ad-btn {
-  padding: 10px 28px; border-radius: 24px;
-  font-size: 14px; font-weight: 600; cursor: pointer;
-  border: none; font-family: var(--font);
-}
-.ad-btn-primary { background: var(--teal-700); color: #fff; }
-.ad-btn-secondary { background: #444; color: #ccc; }
-.ad-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-.ad-reward-tag {
-  position: absolute; top: 12px; right: 12px;
-  font-size: 10px; color: #F59E0B; font-weight: 700;
-  background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 6px;
-}
-
-/* ad animation */
-.ad-pulse {
-  position: absolute; bottom: 60px;
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: rgba(15,118,110,0.3);
-  animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(2.5); opacity: 0; }
-}
+/* ===== ME PAGE ===== */
 
 /* ===== PAGE 2 — Ad Monitor ===== */
 .page-ad { background: var(--bg-ad); }
@@ -237,36 +128,7 @@ body {
   flex: 1; display: flex; flex-direction: column;
   padding: 20px; gap: 20px; overflow-y: auto;
 }
-.ad-types { display: flex; flex-direction: column; gap: 10px; }
-.ad-types-row { display: flex; gap: 10px; }
-.ad-type-card {
-  flex: 1; height: 96px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 6px; padding: 14px;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  position: relative; overflow: hidden;
-}
-.ad-type-card:active { transform: scale(0.96); }
-.ad-type-card .ad-card-icon { font-size: 28px; z-index: 1; }
-.ad-type-card .ad-card-label { font-size: 15px; font-weight: 700; z-index: 1; }
-.ad-type-card .ad-card-bg {
-  position: absolute; top: -20px; right: -20px;
-  width: 80px; height: 80px; border-radius: 50%;
-  opacity: 0.15;
-}
-
-.ad-card-banner { background: #3B82F6; color: #fff; }
-.ad-card-banner .ad-card-bg { background: #fff; }
-.ad-card-native { background: #22C55E; color: #fff; }
-.ad-card-native .ad-card-bg { background: #fff; }
-.ad-card-inter { background: #F59E0B; color: #fff; }
-.ad-card-inter .ad-card-bg { background: #fff; }
-.ad-card-reward { background: #A855F7; color: #fff; }
-.ad-card-reward .ad-card-bg { background: #fff; }
-
+/* ===== DATA CARDS ===== */
 .source-label {
   text-align: center; font-size: 11px;
   color: var(--gray-400); padding-bottom: 4px;
@@ -586,35 +448,6 @@ body {
     <div class="login-skip" onclick="skipLogin()">跳过登录，直接进入</div>
   </div>
 
-  <!-- ========== AD OVERLAY ========== -->
-  <div class="ad-overlay" id="adOverlay">
-    <div class="ad-video-box">
-      <div class="ad-reward-tag">🎁 激励广告</div>
-      <div class="ad-pulse" id="adPulse" style="display:none"></div>
-      <div class="ad-video-content" id="adPlaying">
-        <div class="ad-icon">📺</div>
-        <div class="ad-title">观看广告解锁工具</div>
-        <div class="ad-sub">完成后即可免费使用</div>
-        <div class="ad-progress"><div class="ad-progress-bar" id="adProgress"></div></div>
-        <div class="ad-timer" id="adTimer">5</div>
-      </div>
-      <div class="ad-video-content" id="adDone" style="display:none">
-        <div class="ad-icon">✅</div>
-        <div class="ad-title">广告已完成</div>
-        <div class="ad-sub">工具已解锁，可以使用了</div>
-      </div>
-    </div>
-    <div class="ad-buttons">
-      <button class="ad-btn ad-btn-primary" id="adEnterBtn" onclick="enterTool()" disabled>进入工具</button>
-    </div>
-  </div>
-
-  <!-- ========== REAL AD IFRAME OVERLAY ========== -->
-  <div class="ad-real-overlay" id="adRealOverlay">
-    <button class="ad-real-close" onclick="closeAdReal()">✕</button>
-    <iframe class="ad-real-frame" id="adRealFrame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-  </div>
-
   <!-- ========== PAGE 1: Toolbox ========== -->
   <div class="page page-toolbox" id="page-toolbox">
     <div class="status-bar sb-toolbox">9:41</div>
@@ -625,41 +458,41 @@ body {
       </div>
       <div class="tools-grid">
         <div class="tools-row">
-          <div class="tool-card" onclick="unlockTool('calculator')">
+          <div class="tool-card" onclick="openTool('calculator')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><rect x="5" y="2" width="38" height="44" rx="8" fill="#0F766E"/><rect x="9" y="6" width="30" height="12" rx="4" fill="rgba(255,255,255,0.2)"/><text x="24" y="15" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-size="9" font-weight="700">123</text><rect x="9" y="22" width="10" height="7" rx="3" fill="rgba(255,255,255,0.85)"/><rect x="21" y="22" width="10" height="7" rx="3" fill="rgba(255,255,255,0.85)"/><rect x="33" y="22" width="10" height="7" rx="3" fill="#2DD4BF"/><rect x="9" y="31" width="10" height="7" rx="3" fill="rgba(255,255,255,0.85)"/><rect x="21" y="31" width="10" height="7" rx="3" fill="rgba(255,255,255,0.85)"/><rect x="33" y="31" width="10" height="7" rx="3" fill="#2DD4BF"/><rect x="9" y="40" width="10" height="7" rx="3" fill="rgba(255,255,255,0.85)"/><rect x="21" y="40" width="22" height="7" rx="3" fill="rgba(255,255,255,0.85)"/></svg></div>
             <span>计算器</span>
           </div>
-          <div class="tool-card" onclick="unlockTool('timer')">
+          <div class="tool-card" onclick="openTool('timer')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="26" r="18" fill="none" stroke="#F59E0B" stroke-width="3.5"/><circle cx="24" cy="26" r="16" fill="#FFF8E1"/><circle cx="24" cy="26" r="3.5" fill="#F59E0B"/><line x1="24" y1="26" x2="24" y2="14" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/><line x1="24" y1="26" x2="32" y2="26" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="7" r="2.5" fill="#F59E0B"/><rect x="21.5" y="4" width="5" height="4" rx="2" fill="#F59E0B"/><circle cx="14" cy="42" r="1.5" fill="#FCD34D"/><circle cx="24" cy="44" r="1.5" fill="#FCD34D"/><circle cx="34" cy="42" r="1.5" fill="#FCD34D"/></svg></div>
             <span>计时器</span>
           </div>
         </div>
         <div class="tools-row">
-          <div class="tool-card" onclick="unlockTool('converter')">
+          <div class="tool-card" onclick="openTool('converter')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><rect x="4" y="8" width="17" height="15" rx="5" fill="#8B5CF6"/><text x="12.5" y="19" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="700">m</text><rect x="27" y="25" width="17" height="15" rx="5" fill="#A78BFA"/><text x="35.5" y="36" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="700">ft</text><path d="M21 16 L26 16 L21 32 L26 32" stroke="#7C3AED" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polygon points="24,12 27,17 21,17" fill="#8B5CF6"/><polygon points="24,36 27,31 21,31" fill="#A78BFA"/></svg></div>
             <span>单位换算</span>
           </div>
-          <div class="tool-card" onclick="unlockTool('note')">
+          <div class="tool-card" onclick="alert('该工具暂未开放')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><rect x="7" y="6" width="34" height="36" rx="4" fill="#EAB308"/><polygon points="41,6 34,6 41,13" fill="#CA8A04"/><polygon points="41,6 41,14 34,14" fill="none"/><line x1="14" y1="18" x2="28" y2="18" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="24" x2="32" y2="24" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="30" x2="24" y2="30" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="36" x2="22" y2="36" stroke="#FEF08A" stroke-width="6" stroke-linecap="round"/></svg></div>
             <span>便签</span>
           </div>
         </div>
         <div class="tools-row">
-          <div class="tool-card" onclick="unlockTool('qrcode')">
+          <div class="tool-card" onclick="alert('该工具暂未开放')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="38" rx="6" fill="none" stroke="#3B82F6" stroke-width="2.5"/><path d="M4 14 L4 5 L13 5" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/><path d="M35 5 L44 5 L44 14" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/><path d="M44 35 L44 44 L35 44" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/><path d="M13 44 L4 44 L4 35" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/><rect x="14" y="14" width="8" height="8" rx="2" fill="#3B82F6"/><rect x="26" y="14" width="8" height="8" rx="2" fill="#60A5FA"/><rect x="14" y="26" width="6" height="6" rx="2" fill="#3B82F6"/><rect x="22" y="26" width="6" height="6" rx="2" fill="#3B82F6"/><rect x="30" y="26" width="6" height="6" rx="2" fill="#93C5FD"/><line x1="10" y1="24" x2="10" y2="24" stroke="#3B82F6" stroke-width="0"/></svg></div>
             <span>扫码识图</span>
           </div>
-          <div class="tool-card" onclick="unlockTool('ruler')">
+          <div class="tool-card" onclick="alert('该工具暂未开放')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><rect x="4" y="14" width="40" height="20" rx="4" fill="#166534"/><line x1="4" y1="14" x2="4" y2="34" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/><line x1="12" y1="14" x2="12" y2="24" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="14" x2="16" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="14" x2="20" y2="24" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="14" x2="28" y2="24" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="14" x2="32" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="14" x2="36" y2="24" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="14" x2="40" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/><text x="8" y="38" fill="#22C55E" font-family="sans-serif" font-size="7" font-weight="700">0</text><text x="16" y="38" fill="#22C55E" font-family="sans-serif" font-size="7">1</text><text x="24" y="38" fill="#22C55E" font-family="sans-serif" font-size="7">2</text><text x="32" y="38" fill="#22C55E" font-family="sans-serif" font-size="7">3</text><text x="38" y="38" fill="#22C55E" font-family="sans-serif" font-size="7" font-weight="700">cm</text></svg></div>
             <span>尺子</span>
           </div>
         </div>
         <div class="tools-row">
-          <div class="tool-card" onclick="unlockTool('flashlight')">
+          <div class="tool-card" onclick="alert('该工具暂未开放')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><polygon points="22,32 18,8 30,8 26,32" fill="#DC2626"/><polygon points="24,32 18,42 30,42" fill="#991B1B"/><rect x="19" y="42" width="10" height="3" rx="1.5" fill="#7F1D1D"/><polygon points="14,8 22,2 26,2 34,8" fill="none" stroke="#EF4444" stroke-width="2"/><path d="M8 36 L2 34 L10 28 Z" fill="#FEE2E2" opacity="0.5"/><path d="M12 39 L4 40 L14 29 Z" fill="#FEE2E2" opacity="0.3"/><line x1="18" y1="20" x2="30" y2="20" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="16" r="3" fill="#FEE2E2" opacity="0.6"/></svg></div>
             <span>手电筒</span>
           </div>
-          <div class="tool-card" onclick="unlockTool('more')">
+          <div class="tool-card" onclick="alert('该工具暂未开放')">
             <div class="tool-icon"><svg viewBox="0 0 48 48"><circle cx="13" cy="13" r="5" fill="#64748B"/><circle cx="24" cy="13" r="5" fill="#94A3B8"/><circle cx="35" cy="13" r="5" fill="#CBD5E1"/><circle cx="13" cy="24" r="5" fill="#64748B"/><circle cx="24" cy="24" r="5" fill="#94A3B8"/><circle cx="35" cy="24" r="5" fill="#CBD5E1"/><circle cx="13" cy="35" r="5" fill="#64748B"/><circle cx="24" cy="35" r="5" fill="#94A3B8"/><circle cx="35" cy="35" r="5" fill="#CBD5E1"/></svg></div>
             <span>更多</span>
           </div>
@@ -696,34 +529,7 @@ body {
         <span class="title" style="font-size:24px;color:var(--dark)">广告监控</span>
         <span class="subtitle" style="color:var(--gray-600)">实时数据与状态</span>
       </div>
-      <div class="ad-types">
-        <div class="ad-types-row">
-          <div class="ad-type-card ad-card-banner" onclick="showAdType('banner')">
-            <div class="ad-card-bg"></div>
-            <div class="ad-card-icon">📊</div>
-            <div class="ad-card-label">横幅</div>
-          </div>
-          <div class="ad-type-card ad-card-native" onclick="showAdType('native')">
-            <div class="ad-card-bg"></div>
-            <div class="ad-card-icon">🧩</div>
-            <div class="ad-card-label">原生</div>
-          </div>
-        </div>
-        <div class="ad-types-row">
-          <div class="ad-type-card ad-card-inter" onclick="showAdType('interstitial')">
-            <div class="ad-card-bg"></div>
-            <div class="ad-card-icon">📺</div>
-            <div class="ad-card-label">插屏</div>
-          </div>
-          <div class="ad-type-card ad-card-reward" onclick="showAdType('reward')">
-            <div class="ad-card-bg"></div>
-            <div class="ad-card-icon">🎁</div>
-            <div class="ad-card-label">激励</div>
-          </div>
-        </div>
-      </div>
       <div class="data-cards" id="dataCards"></div>
-      <div class="source-label">数据来源: adbyunion · Octoclick · nap5k</div>
     </div>
     <div class="bottom-bar">
       <div class="pill-bar">
@@ -859,10 +665,6 @@ body {
           <div class="me-stat-label">使用工具</div>
         </div>
         <div class="me-stat">
-          <div class="me-stat-val" id="meAdCount">0</div>
-          <div class="me-stat-label">观看广告</div>
-        </div>
-        <div class="me-stat">
           <div class="me-stat-val" id="meLoginDays">1</div>
           <div class="me-stat-label">登录天数</div>
         </div>
@@ -884,7 +686,7 @@ body {
           <span class="me-menu-arrow">›</span>
         </div>
       </div>
-      <div style="text-align:center; font-size:11px; color:var(--gray-400); padding:8px 0">工具箱 v1.0 · adbyunion · Octoclick · nap5k</div>
+      <div style="text-align:center; font-size:11px; color:var(--gray-400); padding:8px 0">工具箱 v1.0</div>
     </div>
   </div>
 
@@ -1022,74 +824,8 @@ function skipLogin() {
   showPage('page-toolbox');
 }
 
-// ======== AD GATING ========
-let pendingTool = null;
-let adTimerId = null;
-let adCountdown = 5;
-
-function unlockTool(tool) {
-  if (tool === 'calculator' || tool === 'timer' || tool === 'converter') {
-    pendingTool = tool;
-    // Show real ad from effectivecpmnetwork
-    const overlay = document.getElementById('adRealOverlay');
-    const frame = document.getElementById('adRealFrame');
-    frame.src = AD_NETWORK_URL;
-    overlay.classList.add('active');
-  } else {
-    alert('该工具暂未开放');
-  }
-}
-
-function showAd() {
-  const overlay = document.getElementById('adOverlay');
-  overlay.classList.add('active');
-  document.getElementById('adPlaying').style.display = 'flex';
-  document.getElementById('adDone').style.display = 'none';
-  document.getElementById('adPulse').style.display = 'none';
-  document.getElementById('adEnterBtn').disabled = true;
-  document.getElementById('adTimer').textContent = '5';
-  document.getElementById('adProgress').style.width = '0%';
-  adCountdown = 5;
-
-  const start = Date.now();
-  adTimerId = setInterval(() => {
-    const elapsed = (Date.now() - start) / 1000;
-    const remaining = Math.max(0, adCountdown - elapsed);
-    const pct = ((adCountdown - remaining) / adCountdown) * 100;
-    document.getElementById('adTimer').textContent = Math.ceil(remaining);
-    document.getElementById('adProgress').style.width = pct + '%';
-    if (remaining <= 0) {
-      clearInterval(adTimerId);
-      adTimerId = null;
-      adComplete();
-    }
-  }, 100);
-}
-
-function adComplete() {
-  document.getElementById('adPlaying').style.display = 'none';
-  document.getElementById('adDone').style.display = 'flex';
-  document.getElementById('adPulse').style.display = 'block';
-  document.getElementById('adEnterBtn').disabled = false;
-}
-
-function enterTool() {
-  document.getElementById('adOverlay').classList.remove('active');
-  clearInterval(adTimerId);
-  trackToolUse();
-  trackAdView();
-  if (pendingTool === 'calculator') {
-    showPage('page-calc');
-  } else if (pendingTool === 'timer') {
-    showPage('page-timer');
-  } else if (pendingTool === 'converter') {
-    showPage('page-convert');
-  }
-  pendingTool = null;
-}
-
-// startTool: called after real ad iframe closed (from unlockTool flow)
-function startTool(tool) {
+// ======== OPEN TOOL (direct, no ad) ========
+function openTool(tool) {
   trackToolUse();
   if (tool === 'calculator') {
     showPage('page-calc');
@@ -1098,7 +834,6 @@ function startTool(tool) {
   } else if (tool === 'converter') {
     showPage('page-convert');
   }
-  pendingTool = null;
 }
 
 // ======== PAGE NAVIGATION ========
@@ -1123,48 +858,6 @@ function switchTab(tab) {
   if (tab === 'toolbox') showPage('page-toolbox');
   else if (tab === 'ad') showPage('page-ad');
   else if (tab === 'me') { refreshMePage(); showPage('page-me'); }
-}
-
-// ======== AD TYPE BUTTONS ========
-const adTypeNames = { banner: '横幅', native: '原生', interstitial: '插屏', reward: '激励' };
-const adTypeColors = { banner: '#3B82F6', native: '#22C55E', interstitial: '#F59E0B', reward: '#A855F7' };
-const AD_NETWORK_URL = 'https://www.effectivecpmnetwork.com/sihnx8cd?key=4ce690cdfa69a93e1a28cdafc6d38603';
-
-function showAdType(type) {
-  trackAdView();
-
-  // Flash feedback on the button
-  const cards = document.querySelectorAll('.ad-type-card');
-  cards.forEach(c => {
-    if (c.onclick && c.onclick.toString().includes("'" + type + "'")) {
-      c.style.transform = 'scale(0.93)';
-      setTimeout(() => { c.style.transform = ''; }, 200);
-    }
-  });
-
-  // Open real ad in full-screen iframe
-  const overlay = document.getElementById('adRealOverlay');
-  const frame = document.getElementById('adRealFrame');
-  frame.src = AD_NETWORK_URL;
-  overlay.classList.add('active');
-}
-
-function closeAdReal() {
-  const overlay = document.getElementById('adRealOverlay');
-  const frame = document.getElementById('adRealFrame');
-  overlay.classList.remove('active');
-
-  // If user was unlocking a tool: auto-enter after closing ad
-  if (pendingTool) {
-    setTimeout(() => {
-      frame.src = 'about:blank';
-      startTool(pendingTool);
-    }, 400);
-    return;
-  }
-
-  // Otherwise just close
-  setTimeout(() => { frame.src = 'about:blank'; }, 400);
 }
 
 // ======== CALCULATOR ========
@@ -1427,9 +1120,7 @@ function refreshMePage() {
 
     // Stats
     const toolCount = parseInt(localStorage.getItem('toolbox_tool_uses') || '0');
-    const adCount = parseInt(localStorage.getItem('toolbox_ad_views') || '0');
     document.getElementById('meToolCount').textContent = toolCount;
-    document.getElementById('meAdCount').textContent = adCount;
 
     if (currentUser.createdAt) {
       const days = Math.max(1, Math.floor((Date.now() - new Date(currentUser.createdAt).getTime()) / 86400000) + 1);
@@ -1440,7 +1131,6 @@ function refreshMePage() {
     name.textContent = '未登录';
     joinDate.textContent = '';
     document.getElementById('meToolCount').textContent = '0';
-    document.getElementById('meAdCount').textContent = '0';
     document.getElementById('meLoginDays').textContent = '0';
   }
 }
@@ -1448,10 +1138,6 @@ function refreshMePage() {
 function trackToolUse() {
   const count = parseInt(localStorage.getItem('toolbox_tool_uses') || '0');
   localStorage.setItem('toolbox_tool_uses', count + 1);
-}
-function trackAdView() {
-  const count = parseInt(localStorage.getItem('toolbox_ad_views') || '0');
-  localStorage.setItem('toolbox_ad_views', count + 1);
 }
 
 function changePin() {
@@ -1464,7 +1150,7 @@ function changePin() {
 }
 
 function showAbout() {
-  alert('工具箱 v1.0\n\n实用工具合集\n计算器 · 计时器 · 单位换算\n\n广告平台: adbyunion · Octoclick · nap5k');
+  alert('工具箱 v1.0\n\n实用工具合集\n计算器 · 计时器 · 单位换算');
 }
 
 function logout() {
