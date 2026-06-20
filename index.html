@@ -1195,6 +1195,29 @@ function escapeHtml(str) {
 }
 
 // ===== PLAY GAME =====
+function playGame(game) {
+    if (!game) return;
+    document.getElementById('modalTitle').textContent = game.name;
+    document.getElementById('modalDesc').textContent = game.description || '';
+    const frame = document.getElementById('gameFrame');
+    frame.src = game.url;
+    document.getElementById('gameModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGame() {
+    document.getElementById('gameModal').classList.remove('active');
+    document.getElementById('gameFrame').src = '';
+    document.body.style.overflow = '';
+}
+
+function openFullscreen() {
+    const frame = document.getElementById('gameFrame');
+    if (frame.requestFullscreen) frame.requestFullscreen();
+    else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+    else if (frame.msRequestFullscreen) frame.msRequestFullscreen();
+}
+
 // ===== SEARCH =====
 document.getElementById('searchInput').addEventListener('input', function(e) {
     searchQuery = e.target.value.trim();
