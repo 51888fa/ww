@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- v2026-06-20-20-00 -->
                 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -13,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0e17;
+            --bg: #111827;
             --bg2: #111827;
             --bg3: #1e293b;
             --bg4: #334155;
@@ -1056,7 +1057,7 @@ function createParticles() {
 // ===== LOAD GAMES =====
 async function loadGames() {
     try {
-        const resp = await fetch('games.json');
+        const resp = await fetch('games.json?v=2');
         if (!resp.ok) throw new Error('Failed');
         allGames = await resp.json();
         document.getElementById('totalGames').textContent = allGames.length + '+';
