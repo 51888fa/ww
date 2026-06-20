@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #111827;
+            --bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             --bg2: #111827;
             --bg3: #1e293b;
             --bg4: #334155;
@@ -798,6 +798,23 @@
     
         </head>
 <body>
+
+<div id="pageLoading" style="position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;color:#f1f5f9;font-family:sans-serif;">
+    <div style="font-size:48px;">🎮</div>
+    <div style="font-size:20px;font-weight:700;">GameVault</div>
+    <div style="font-size:14px;color:#94a3b8;">Loading games...</div>
+    <div class="spinner" style="width:40px;height:40px;border:3px solid #334155;border-top:3px solid #6366f1;border-radius:50%;animation:spin 1s linear infinite;"></div>
+</div>
+<script>
+// Remove loading overlay when page is ready
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var el = document.getElementById('pageLoading');
+        if (el) el.style.display = 'none';
+    }, 1000);
+});
+</script>
+
 <script>
 // Unregister any old Service Workers (cleanup from previous ad networks)
 if ('serviceWorker' in navigator) {
