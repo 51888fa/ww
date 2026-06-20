@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>(function(s){s.dataset.zone='11123344',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <meta name="octoclick-verification" content="f576ac88bbba50d67817ac3522c38df3">
-    <meta name="octoclick-verification" content="535c26a7f9ee9cff51929666ead5c710">
-    <meta charset="UTF-8">
+                <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameVault - Play Free Online Games</title>
     <meta name="description" content="GameVault - Play thousands of free online games instantly. No download required. Action, puzzle, racing, arcade and more!">
@@ -795,69 +792,9 @@
             .featured-side { flex-direction: column; }
         }
     
-        /* ===== VAST AD OVERLAY ===== */
-        .vast-ad-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 3000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .vast-ad-overlay.active { display: flex; }
-        .vast-ad-container {
-            width: 90%;
-            max-width: 800px;
-            position: relative;
-        }
-        .vast-ad-container video {
-            width: 100%;
-            border-radius: 8px;
-            background: #000;
-        }
-        .vast-ad-label {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(255,0,0,0.8);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 700;
-            z-index: 10;
-        }
-        .vast-skip-btn {
-            position: absolute;
-            bottom: 50px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.4);
-            padding: 8px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            z-index: 10;
-            display: none;
-        }
-        .vast-skip-btn.visible { display: block; }
-        .vast-skip-btn:hover { background: rgba(255,255,255,0.4); }
-        .vast-loading {
-            color: #aaa;
-            font-size: 14px;
-            margin-top: 16px;
-        }
-</style>
     <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css"/>
-    <script async src="https://syndication.runative.com/js/v3/rnbyavascript.min.js"></script>
-</head>
+    </head>
 <body>
-<!-- Runative Interstitial Ad -->
-<div id="runative-slot-62408f3203084ba8bd4f98c03b9e8d" data-adformat="interstitial" data-countdown="15" data-cookieexpiry="0.167"></div>
 
 <!-- HEADER -->
 <header class="header">
@@ -1197,8 +1134,6 @@ function escapeHtml(str) {
 let _pendingGame = null;
 let _vastPlayer = null;
 let _vastAttempted = false;
-const VAST_TAG = "https://Octo25.me/ocean/creatives?zoneId=12668";
-const VAST_SKIP_SECONDS = 5;
 
 function playGame(game) {
     if (!game || !game.url) return;
@@ -1239,7 +1174,6 @@ function tryPlayVastAd() {
                 controlBar: { autoHide: true }
             },
             vastOptions: {
-                adList: [{ roll: 'preRoll', vastTag: VAST_TAG }],
                 skipButtonCaption: 'Skip ad in [[seconds]]',
                 adTextPosition: 'top left',
                 adText: 'Advertisement',
@@ -1260,7 +1194,6 @@ function tryPlayVastAd() {
         // Show skip button after N seconds
         let skipTimer = setTimeout(function() {
             skipBtn.classList.add('visible');
-        }, VAST_SKIP_SECONDS * 1000);
 
         // Listen for ad end
         video.addEventListener('ended', function onEnded() {
@@ -1346,16 +1279,8 @@ loadGames();
 
 
 
-<script>
-(function(o, c, t, l, i) {
-    for (i = 0; i < o.scripts.length; i++) { if (o.scripts[i].src === c) { return; } }
-    l = o.createElement("script");
-    l.src = c + "?" + Date.now();
-    l.setAttribute("async", "");
-    l.setAttribute("data-id", t);
-    o.body.appendChild(l);
-})(document, "https://Octo25.me/l1b.js", "a65d7f-d714cd");
-</script>
+
 </body>
 </html>
+
 
