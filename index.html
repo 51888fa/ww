@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameVault - Play Free Online Games</title>
-    <meta name="description" content="GameVault - Play thousands of free online games instantly. No download required!">
+    <title>GameVault - Play Free Online Games Instantly | No Download</title>
+    <meta name="description" content="GameVault offers 59+ free online HTML5 games. Play instantly in your browser - no download, no registration required. Action, puzzle, racing, sports and more!">
+    <meta name="keywords" content="free online games, html5 games, browser games, play games online, no download games, game vault">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="GameVault">
+    <link rel="canonical" href="https://waiyy.fun/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGV%3C/text%3E%3C/svg%3E">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GameVault - Play Free Online Games Instantly">
+    <meta property="og:description" content="59+ free HTML5 games. Play instantly - no download required! Action, puzzle, racing, sports and more.">
+    <meta property="og:url" content="https://waiyy.fun/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542751376-adc38f487a38?w=1200&h=630&fit=crop">
+    <meta property="og:site_name" content="GameVault">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GameVault - Play Free Online Games">
+    <meta name="twitter:description" content="59+ free HTML5 games. Play instantly - no download required!">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751376-adc38f487a38?w=1200&h=630&fit=crop">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GameVault",
+        "url": "https://waiyy.fun/",
+        "description": "Play 59+ free online HTML5 games instantly. No download required.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://waiyy.fun/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1a1a2e;color:#e2e8f0;line-height:1.6;min-height:100vh}
         a{text-decoration:none;color:inherit}
         .container{max-width:1200px;margin:0 auto;padding:0 16px}
 
-        /* Header */
         .header{background:#16213e;border-bottom:1px solid #334155;position:sticky;top:0;z-index:100}
         .header-inner{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;max-width:1200px;margin:0 auto}
         .logo{font-size:22px;font-weight:bold;color:#818cf8}
@@ -19,19 +51,20 @@
         .search-box input{flex:1;padding:8px 14px;border-radius:8px;border:1px solid #334155;background:#0f3460;color:#fff;font-size:14px;outline:none}
         .search-box input:focus{border-color:#6366f1}
 
-        /* Stats bar */
+        .hero{text-align:center;padding:40px 20px;background:linear-gradient(180deg,#16213e 0%,#1a1a2e 100%)}
+        .hero h1{font-size:32px;font-weight:bold;color:#f1f5f9;margin-bottom:8px}
+        .hero p{font-size:16px;color:#94a3b8;max-width:600px;margin:0 auto}
+
         .stats{display:flex;justify-content:center;gap:30px;padding:24px 20px;background:#16213e}
         .stat{text-align:center}
         .stat-num{font-size:28px;font-weight:bold;color:#818cf8}
         .stat-label{font-size:13px;color:#94a3b8}
 
-        /* Categories */
         .section-title{font-size:20px;font-weight:bold;margin:20px 0 12px;color:#f1f5f9}
         .cats{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
         .cat-btn{padding:8px 18px;border-radius:20px;border:1px solid #334155;background:#0f3460;color:#cbd5e1;cursor:pointer;font-size:13px;white-space:nowrap}
         .cat-btn.active,.cat-btn:hover{background:#6366f1;color:#fff;border-color:#6366f1}
 
-        /* Game grid */
         .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:20px 0}
         .card{background:#16213e;border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s;border:1px solid #334155}
         .card:hover{transform:translateY(-3px);border-color:#6366f1}
@@ -39,8 +72,12 @@
         .card-body{padding:10px 12px}
         .card-name{font-size:14px;font-weight:600;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
         .card-cat{font-size:11px;color:#94a3b8;margin-top:3px}
+        .thumb-area{position:relative;width:100%;height:120px;background:#0f3460;overflow:hidden}
+        .cat-badge{position:absolute;top:6px;left:6px;padding:3px 10px;background:rgba(99,102,241,.85);color:#fff;border-radius:12px;font-size:11px;font-weight:600}
+        .card-desc{font-size:11px;color:#94a3b8;margin-top:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .play-sm{margin-top:8px;padding:5px 16px;background:#6366f1;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600}
+        .play-sm:hover{background:#5558e3}
 
-        /* Modal */
         .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center}
         .modal-overlay.show{display:flex}
         .modal{width:95%;max-width:900px;height:80vh;background:#000;border-radius:12px;display:flex;flex-direction:column}
@@ -49,7 +86,23 @@
         .modal-close{width:32px;height:32px;border-radius:50%;background:#ef4444;color:#fff;border:none;cursor:pointer;font-size:18px}
         .modal-iframe{flex:1;width:100%;border:none}
 
-        /* Footer */
+        .info-section{background:#16213e;border-radius:12px;padding:24px;margin:20px 0;border:1px solid #334155}
+        .info-section h2{font-size:18px;font-weight:bold;color:#f1f5f9;margin-bottom:12px}
+        .info-section p{font-size:14px;color:#cbd5e1;margin-bottom:8px}
+        .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px}
+        .step{background:#0f3460;border-radius:8px;padding:16px;text-align:center}
+        .step-num{width:32px;height:32px;border-radius:50%;background:#6366f1;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;margin:0 auto 8px}
+        .step h3{font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:4px}
+        .step p{font-size:12px;color:#94a3b8}
+
+        .faq-item{background:#0f3460;border-radius:8px;margin-bottom:8px;overflow:hidden}
+        .faq-q{padding:14px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#f1f5f9;display:flex;justify-content:space-between;align-items:center}
+        .faq-q:hover{color:#818cf8}
+        .faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:13px;color:#94a3b8}
+        .faq-item.open .faq-a{max-height:200px;padding:0 16px 14px}
+        .faq-toggle{font-size:18px;transition:transform .3s}
+        .faq-item.open .faq-toggle{transform:rotate(45deg)}
+
         .footer{background:#16213e;border-top:1px solid #334155;padding:30px 20px;margin-top:40px}
         .footer-inner{max-width:1200px;margin:0 auto;text-align:center}
         .footer-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -57,28 +110,19 @@
         .footer-links a:hover{color:#818cf8}
         .footer-copy{margin-top:16px;font-size:12px;color:#64748b}
 
-        /* Loading */
         .loading{text-align:center;padding:60px 20px;color:#94a3b8}
-        .loading-icon{font-size:48px;margin-bottom:12px}
         .spinner{display:inline-block;width:40px;height:40px;border:3px solid #334155;border-top-color:#6366f1;border-radius:50%;animation:spin 1s linear infinite}
         @keyframes spin{to{transform:rotate(360deg)}}
-
-        /* Empty state */
         .empty{text-align:center;padding:60px 20px;color:#94a3b8}
-        .empty-icon{font-size:48px;margin-bottom:12px}
 
-        
-        .thumb-area{position:relative;width:100%;height:120px;background:#0f3460;overflow:hidden}
-        .cat-badge{position:absolute;top:6px;left:6px;padding:3px 10px;background:rgba(99,102,241,.85);color:#fff;border-radius:12px;font-size:11px;font-weight:600}
-        .card-desc{font-size:11px;color:#94a3b8;margin-top:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-        .play-sm{margin-top:8px;padding:5px 16px;background:#6366f1;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600}
-        .play-sm:hover{background:#5558e3}
         @media(max-width:600px){
             .header-inner{padding:0 12px}
             .search-box{max-width:150px;margin:0 10px}
             .grid{grid-template-columns:repeat(2,1fr);gap:10px}
             .card-thumb{height:90px}
             .stat-num{font-size:22px}
+            .hero h1{font-size:24px}
+            .hero p{font-size:14px}
         }
     </style>
 </head>
@@ -93,6 +137,11 @@
     </div>
 </div>
 
+<div class="hero">
+    <h1>Play Free Online Games Instantly</h1>
+    <p>59+ HTML5 games ready to play in your browser. No download, no registration, 100% free forever.</p>
+</div>
+
 <div class="stats">
     <div class="stat"><div class="stat-num" id="totalGames">59+</div><div class="stat-label">Free Games</div></div>
     <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Categories</div></div>
@@ -102,503 +151,68 @@
 
 <div class="container">
     <h2 class="section-title" id="gridTitle">All Games</h2>
-    <div class="cats" id="categoriesBar">
-        <button class="cat-btn" class="active" onclick="filterCat('all')">🎮 All</button>
-        <button class="cat-btn" onclick="filterCat('action')">🔥 Action</button>
-        <button class="cat-btn" onclick="filterCat('arcade')">🎮 Arcade</button>
-        <button class="cat-btn" onclick="filterCat('io')">🚀 .io</button>
-        <button class="cat-btn" onclick="filterCat('match3')">🎁 Match 3</button>
-        <button class="cat-btn" onclick="filterCat('puzzle')">🧩 Puzzle</button>
-        <button class="cat-btn" onclick="filterCat('racing')">🏎 Racing</button>
-        <button class="cat-btn" onclick="filterCat('running')">🏃 Running</button>
-        <button class="cat-btn" onclick="filterCat('shooter')">🔫 Shooter</button>
-        <button class="cat-btn" onclick="filterCat('sports')">⚽ Sports</button>
-        <button class="cat-btn" onclick="filterCat('strategy')">♟ Strategy</button>
+    <div class="cats" id="categoriesBar"></div>
+    <div id="gameGrid" class="grid">
+        <div class="loading"><div class="spinner"></div><p style="margin-top:12px">Loading games...</p></div>
     </div>
-    <div id="gameGrid" class=grid>
-        <div class="card" data-cat="running" onclick="openGame('https://lagged.com/api/play2/subway-surfers/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1476480862126-283b7905e692?w=400&h=250&fit=crop" alt="Subway Runner" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Running</div></div>
-            <div class="card-body">
-                <div class="card-name">Subway Runner</div>
-                <div class="card-desc">Dash through the subway and dodge the oncoming trains! Run, ...</div>
-                <button class="play-sm">▶ Play</button>
+</div>
+
+<div class="container">
+    <div class="info-section">
+        <h2>How to Play</h2>
+        <p>Getting started with GameVault is quick and easy. Follow these simple steps:</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Browse Games</h3>
+                <p>Explore 59+ games across 10 categories. Use the search bar or filter by category to find your favorite.</p>
             </div>
-        </div>
-<div class="card" data-cat="running" onclick="openGame('https://lagged.com/api/play2/temple-run-2/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop" alt="Temple Adventure 2" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Running</div></div>
-            <div class="card-body">
-                <div class="card-name">Temple Adventure 2</div>
-                <div class="card-desc">Navigate perilous cliffs and zip lines as you escape the cur...</div>
-                <button class="play-sm">▶ Play</button>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Click to Play</h3>
+                <p>Click any game card to launch it instantly in a pop-up window. No downloads or plugins needed.</p>
             </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/moto-x3m/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop" alt="Moto X3M" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Moto X3M</div>
-                <div class="card-desc">Race your motorcycle through insane obstacle courses. Perfor...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/moto-x3m-spooky-land/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1558981806-ec5f85c285ca?w=400&h=250&fit=crop" alt="Moto X3M Spooky Land" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Moto X3M Spooky Land</div>
-                <div class="card-desc">The spooky edition of Moto X3M! Ride through haunted tracks ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/stickman-hook/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop" alt="Stick Hook" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Stick Hook</div>
-                <div class="card-desc">Swing from hook to hook like a spider-man! Simple controls, ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="match3" onclick="openGame('https://lagged.com/api/play2/candy-match/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop" alt="Candy Match" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Match 3</div></div>
-            <div class="card-body">
-                <div class="card-name">Candy Match</div>
-                <div class="card-desc">Match colorful candies to create combos and clear the board....</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/basketball-stars/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop" alt="Basketball Star" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Basketball Star</div>
-                <div class="card-desc">Hit the court and shoot some hoops in this exciting basketba...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/soccer-random/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop" alt="Soccer Kick" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Soccer Kick</div>
-                <div class="card-desc">A fun and random soccer game with changing fields and player...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/slope/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop" alt="Slope Ball" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Slope Ball</div>
-                <div class="card-desc">Roll down the slope at high speed! Avoid obstacles and don't...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/geometry-dash/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop" alt="Geometry Jump" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Geometry Jump</div>
-                <div class="card-desc">Rhythm-based platforming! Jump and fly through dangerous pas...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="shooter" onclick="openGame('https://lagged.com/api/play2/1v1-lol/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=250&fit=crop" alt="1v1 Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Shooter</div></div>
-            <div class="card-body">
-                <div class="card-name">1v1 Battle</div>
-                <div class="card-desc">Build defenses and battle opponents in this 1v1 shooting gam...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/slither-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop" alt="Slither Snake" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Slither Snake</div>
-                <div class="card-desc">Eat orbs to grow longer and become the biggest snake in the ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/agar-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop" alt="Agar Cell" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Agar Cell</div>
-                <div class="card-desc">Eat smaller cells and avoid being eaten. Can you become the ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/among-us/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop" alt="Space Crew Online" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Space Mission</div>
-                <div class="card-desc">Work together to complete tasks! Find the hidden threat...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/block-builder/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1556438096-2089a2a59595?w=400&h=250&fit=crop" alt="Block Builder" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Block Builder</div>
-                <div class="card-desc">Build and explore in this classic block-building game. Place...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/happy-wheels/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1544636331-e301106ba6a3?w=400&h=250&fit=crop" alt="Happy Rider" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Happy Rider</div>
-                <div class="card-desc">Ragdoll physics madness! Race through obstacle courses with ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/flappy-bird/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop" alt="Flap Bird" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Flap Wings</div>
-                <div class="card-desc">Tap to fly through the pipes! Simple but insanely addictive....</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/2048/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop" alt="2048 Puzzle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">2048 Puzzle</div>
-                <div class="card-desc">Slide numbered tiles to combine them and reach the 2048 tile...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/tetris/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop" alt="Block Puzzle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Block Puzzle</div>
-                <div class="card-desc">The classic block-stacking puzzle game! Rotate and place tet...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/crossy-road/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=250&fit=crop" alt="Cross Road" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Cross Road</div>
-                <div class="card-desc">Why did the chicken cross the road? Find out in this endless...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/fruit-ninja/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1552820728-8b83bb6b2b28?w=400&h=250&fit=crop" alt="Fruit Slash" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Fruit Slash</div>
-                <div class="card-desc">Slice fruits in half with your finger! Don't let them fall, ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/cut-the-rope/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Cut Rope" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Cut Rope</div>
-                <div class="card-desc">Feed candy to Om Nom! Cut ropes strategically to collect sta...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/angry-birds/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop" alt="Angry Birdies" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Angry Birdies</div>
-                <div class="card-desc">Launch birds at pig structures to destroy them! Use physics ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/doodle-jump/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop" alt="Doodle Bounce" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Doodle Bounce</div>
-                <div class="card-desc">Jump from platform to platform and climb as high as you can!...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="running" onclick="openGame('https://lagged.com/api/play2/run-3/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1555695410-7b1dc6d7c5c0?w=400&h=250&fit=crop" alt="Run Runner 3" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Running</div></div>
-            <div class="card-body">
-                <div class="card-name">Run Runner 3</div>
-                <div class="card-desc">Run through space tunnels and defy gravity! Don't fall into ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/bubble-shooter/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop" alt="Bubble Pop" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Bubble Pop</div>
-                <div class="card-desc">Match 3 or more bubbles of the same color to pop them! Clear...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/8-ball-pool/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop" alt="8 Ball Billiards" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">8 Ball Billiards</div>
-                <div class="card-desc">The classic pool game! Aim, shoot, and sink all your balls b...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/table-tennis/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=250&fit=crop" alt="Ping Pong Pro" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Ping Pong Pro</div>
-                <div class="card-desc">Fast-paced ping pong action! Serve, smash, and outplay your ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/hill-climb-racing/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400&h=250&fit=crop" alt="Hill Climb" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Hill Climb</div>
-                <div class="card-desc">Drive your vehicle through hilly terrains! Upgrade your car ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/traffic-racer/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop" alt="Traffic Race" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Traffic Race</div>
-                <div class="card-desc">Drive fast on the highway and overtake other cars! Endless r...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/paper-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop" alt="Paper Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Paper Battle</div>
-                <div class="card-desc">Claim as much territory as possible! Draw lines to capture g...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/diep-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop" alt="Diep Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Diep Battle</div>
-                <div class="card-desc">Upgrade your tank and destroy shapes and other players! Shap...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="shooter" onclick="openGame('https://lagged.com/api/play2/krunker-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1580327344181-c131031d0a71?w=400&h=250&fit=crop" alt="Krunker FPS" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Shooter</div></div>
-            <div class="card-body">
-                <div class="card-name">Krunker FPS</div>
-                <div class="card-desc">Fast-paced pixel FPS! Jump, slide, and shoot your way to the...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="shooter" onclick="openGame('https://lagged.com/api/play2/shellshockers/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=400&h=250&fit=crop" alt="Egg Shooter" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Shooter</div></div>
-            <div class="card-body">
-                <div class="card-name">Egg Shooter</div>
-                <div class="card-desc">Egg-citing FPS! Play as an egg armed with weapons in this cr...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/zombs-royale/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop" alt="Zombs Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Zombs Battle</div>
-                <div class="card-desc">2D battle royale! Drop in, loot weapons, and be the last sur...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/skribbl-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop" alt="Skribbl Draw" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Skribbl Draw</div>
-                <div class="card-desc">Draw and guess words in this multiplayer drawing game! Creat...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/gartic-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop" alt="Gartic Draw" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Gartic Draw</div>
-                <div class="card-desc">Draw and guess words with players from around the world! Fun...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/mope-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop" alt="Mope Animal" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Mope Animal</div>
-                <div class="card-desc">Evolve from a mouse to an elephant or dragon! Eat food and c...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="io" onclick="openGame('https://lagged.com/api/play2/wormate-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop" alt="Wormate Snake" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">.io</div></div>
-            <div class="card-body">
-                <div class="card-name">Wormate Snake</div>
-                <div class="card-desc">Eat food and grow your worm! Sweet power-ups and cute graphi...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/tank-trouble/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop" alt="Tank Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Tank Battle</div>
-                <div class="card-desc">Drive a tank through a maze and destroy enemy tanks! Single ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/super-smash-flash/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop" alt="Super Smash Arena" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Battle Arena</div>
-                <div class="card-desc">The ultimate battle game! Fight with unique characters acro...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/fall-guys/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop" alt="Fall Friends" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Fall Friends</div>
-                <div class="card-desc">Compete in wacky obstacle courses! Be the last bean standing...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/stumble-guys/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop" alt="Stumble Race" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Stumble Race</div>
-                <div class="card-desc">Knockdown royale! Run through obstacle courses and be the la...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="action" onclick="openGame('https://lagged.com/api/play2/bad-ice-cream/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop" alt="Bad Ice Game" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Action</div></div>
-            <div class="card-body">
-                <div class="card-name">Bad Ice Game</div>
-                <div class="card-desc">Control an ice cream character and freeze enemies! Collect a...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="racing" onclick="openGame('https://lagged.com/api/play2/violt-race/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop" alt="Violet Race" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Racing</div></div>
-            <div class="card-body">
-                <div class="card-name">Violet Race</div>
-                <div class="card-desc">High-speed racing with cool cars and challenging tracks!...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/rocket-soccer/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1517466787929-dc4377a1d0d4?w=400&h=250&fit=crop" alt="Rocket Soccer" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Rocket Soccer</div>
-                <div class="card-desc">Drive rocket-powered cars and score epic goals in this socce...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/real-basketball/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop" alt="Real Hoops" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Real Hoops</div>
-                <div class="card-desc">Realistic basketball simulation! Shoot hoops and improve you...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="sports" onclick="openGame('https://lagged.com/api/play2/desktop-golf/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop" alt="Desktop Putt" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Sports</div></div>
-            <div class="card-body">
-                <div class="card-name">Desktop Putt</div>
-                <div class="card-desc">Relaxing mini-golf right on your desktop! Simple controls, c...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/sudoku/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop" alt="Sudoku Logic" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Sudoku Logic</div>
-                <div class="card-desc">The classic number placement puzzle! Fill the grid with digi...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/solitaire/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Card Solitaire" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Card Solitaire</div>
-                <div class="card-desc">The classic card game! Arrange cards in descending order alt...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="puzzle" onclick="openGame('https://lagged.com/api/play2/word-search/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop" alt="Word Find" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Puzzle</div></div>
-            <div class="card-body">
-                <div class="card-name">Word Find</div>
-                <div class="card-desc">Find hidden words in a grid of letters! Multiple categories ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="match3" onclick="openGame('https://lagged.com/api/play2/bejeweled/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop" alt="Bejeweled Gems" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Match 3</div></div>
-            <div class="card-body">
-                <div class="card-name">Bejeweled Gems</div>
-                <div class="card-desc">The original match-3 gem game! Swap gems to make matches and...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="match3" onclick="openGame('https://lagged.com/api/play2/farm-heroes/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Farm Heroes" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Match 3</div></div>
-            <div class="card-body">
-                <div class="card-name">Farm Heroes</div>
-                <div class="card-desc">Match crops to complete farm-tastic puzzles! Fun match-3...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="match3" onclick="openGame('https://lagged.com/api/play2/candy-crush/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop" alt="Candy Saga" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Match 3</div></div>
-            <div class="card-body">
-                <div class="card-name">Candy Match</div>
-                <div class="card-desc">Match 3 candies in this sweet puzzle adventure! Thousands of...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="strategy" onclick="openGame('https://lagged.com/api/play2/clash-of-clans/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=250&fit=crop" alt="Clash Tribes" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Strategy</div></div>
-            <div class="card-body">
-                <div class="card-name">Tribe Clash</div>
-                <div class="card-desc">Build your village, train troops, and battle other players! ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="strategy" onclick="openGame('https://lagged.com/api/play2/clash-royale/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop" alt="Clash Cards" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Strategy</div></div>
-            <div class="card-body">
-                <div class="card-name">Card Clash</div>
-                <div class="card-desc">Real-time strategy card battling! Deploy troops and destroy ...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="strategy" onclick="openGame('https://lagged.com/api/play2/lordz-io/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Lordz Battle" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Strategy</div></div>
-            <div class="card-body">
-                <div class="card-name">Lordz Battle</div>
-                <div class="card-desc">Build your medieval empire! Collect gold, build castles, and...</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="arcade" onclick="openGame('https://lagged.com/api/play2/sandbox-world/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop" alt="Sandbox World" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Arcade</div></div>
-            <div class="card-body">
-                <div class="card-name">Sandbox World</div>
-                <div class="card-desc">Create and play in immersive 3D worlds! Explore endless user-generated games and experiences.</div>
-                <button class="play-sm">▶ Play</button>
-            </div>
-        </div>
-<div class="card" data-cat="strategy" onclick="openGame('https://lagged.com/api/play2/plants-vs-zombies/')">
-            <div class="thumb-area"><img class="card-thumb" src="https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop" alt="Plants vs Zombie" loading="lazy" onerror="this.style.display='none'"><div class="cat-badge">Strategy</div></div>
-            <div class="card-body">
-                <div class="card-name">Zombie Garden</div>
-                <div class="card-desc">Defend your garden from zombies with an army of plants! Stra...</div>
-                <button class="play-sm">▶ Play</button>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Enjoy & Share</h3>
+                <p>Play directly in your browser. Games work on desktop and mobile devices. Share with friends!</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Game Modal -->
-<div class="modal-overlay" id="gameModal">
-    <div class="modal">
-        <div class="modal-head">
-            <span class="modal-title" id="modalTitle">Game</span>
-            <button class="modal-close" onclick="closeGame()">&times;</button>
+<div class="container">
+    <div class="info-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Is GameVault really free? <span class="faq-toggle">+</span></div>
+            <div class="faq-a">Yes! All games on GameVault are 100% free to play. No hidden fees, no subscriptions, no in-app purchases. We support the site through advertising to keep games free for everyone.</div>
         </div>
-        <iframe class="modal-iframe" id="gameFrame" allowfullscreen allow="autoplay;fullscreen;gamepad"></iframe>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Do I need to download anything? <span class="faq-toggle">+</span></div>
+            <div class="faq-a">No downloads required. All games are HTML5-based and run directly in your web browser. Just click and play instantly on any modern browser.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Does it work on mobile? <span class="faq-toggle">+</span></div>
+            <div class="faq-a">Yes! Most games work on both desktop and mobile devices. The site is fully responsive and optimized for touch controls. For the best experience, use a modern browser like Chrome, Safari, or Firefox.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Do I need to create an account? <span class="faq-toggle">+</span></div>
+            <div class="faq-a">No account needed. Just visit the site, pick a game, and start playing immediately. No registration, no email, no personal information required.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How often are new games added? <span class="faq-toggle">+</span></div>
+            <div class="faq-a">We regularly add new games to keep the collection fresh. Check back often for new titles across all categories including action, puzzle, racing, sports, and more.</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="info-section">
+        <h2>About GameVault</h2>
+        <p>GameVault is a free online gaming platform offering a curated collection of HTML5 browser games. Our mission is to provide instant entertainment accessible to everyone, anywhere, on any device.</p>
+        <p>With 59+ games spanning 10 categories - from action and arcade to puzzle and sports - there is something for every type of player. All games run directly in your browser with no downloads required.</p>
+        <p>We believe gaming should be simple, accessible, and fun. That is why every game on GameVault is free to play, with no registration or hidden costs. Just visit, click, and play.</p>
     </div>
 </div>
 
@@ -612,7 +226,17 @@
             <a href="/dmca.html">DMCA / Copyright</a>
             <a href="/contact.html">Contact</a>
         </div>
-        <p class="footer-copy">&copy; 2026 GameVault. All rights reserved. Games are property of their respective owners.</p>
+        <p class="footer-copy">&copy; 2026 GameVault. All rights reserved. All games are property of their respective owners.</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="gameModal">
+    <div class="modal">
+        <div class="modal-head">
+            <div class="modal-title" id="modalTitle">Game</div>
+            <button class="modal-close" onclick="closeGame()">&times;</button>
+        </div>
+        <iframe class="modal-iframe" id="gameFrame" allowfullscreen allow="autoplay;fullscreen;gamepad"></iframe>
     </div>
 </div>
 
@@ -621,518 +245,96 @@ var allGames = [];
 var currentCat = 'all';
 var searchQuery = '';
 
-const catConfig = {
-    action:{name:'Action',emoji:'&#128165;'},
-    puzzle:{name:'Puzzle',emoji:'&#129513;'},
-    racing:{name:'Racing',emoji:'&#127950;'},
-    sports:{name:'Sports',emoji:'&#9917;'},
-    arcade:{name:'Arcade',emoji:'&#127922;'},
-    shooter:{name:'Shooter',emoji:'&#128163;'},
-    io:{name:'.io',emoji:'&#128640;'},
-    strategy:{name:'Strategy',emoji:'&#9876;'},
-    running:{name:'Running',emoji:'&#127939;'},
-    match3:{name:'Match 3',emoji:'&#128142;'}
+var catConfig = {
+    action:{name:'Action',emoji:'\u{1F4A5}'},
+    puzzle:{name:'Puzzle',emoji:'\u{1F9E9}'},
+    racing:{name:'Racing',emoji:'\u{1F3CE}'},
+    sports:{name:'Sports',emoji:'\u26BD'},
+    arcade:{name:'Arcade',emoji:'\u{1F3AE}'},
+    shooter:{name:'Shooter',emoji:'\u{1F3AF}'},
+    io:{name:'.io',emoji:'\u{1F680}'},
+    strategy:{name:'Strategy',emoji:'\u265F'},
+    running:{name:'Running',emoji:'\u{1F3C3}'},
+    match3:{name:'Match 3',emoji:'\u{1F48E}'}
 };
 
 function escapeHtml(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
-function loadGames(){
-    try{
-        allGames=[
-    {
-        "id": "subway-surfers",
-        "name": "Subway Runner",
-        "description": "Dash through the subway and dodge the oncoming trains! Run, jump, and slide your way to high scores.",
-        "category": "running",
-        "url": "https://lagged.com/api/play2/subway-surfers/",
-        "thumbnail": "https://images.unsplash.com/photo-1476480862126-283b7905e692?w=400&h=250&fit=crop",
-        "featured": true
-    },
-    {
-        "id": "temple-run-2",
-        "name": "Temple Adventure 2",
-        "description": "Navigate perilous cliffs and zip lines as you escape the cursed temple.",
-        "category": "running",
-        "url": "https://lagged.com/api/play2/temple-run-2/",
-        "thumbnail": "https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "moto-x3m",
-        "name": "Moto X3M",
-        "description": "Race your motorcycle through insane obstacle courses. Perform flips and stunts to beat the clock!",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/moto-x3m/",
-        "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop",
-        "featured": true
-    },
-    {
-        "id": "moto-x3m-spooky",
-        "name": "Moto X3M Spooky Land",
-        "description": "The spooky edition of Moto X3M! Ride through haunted tracks on your motorcycle.",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/moto-x3m-spooky-land/",
-        "thumbnail": "https://images.unsplash.com/photo-1558981806-ec5f85c285ca?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "stickman-hook",
-        "name": "Stick Hook",
-        "description": "Swing from hook to hook like a spider-man! Simple controls, addictive gameplay.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/stickman-hook/",
-        "thumbnail": "https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "candy-match",
-        "name": "Candy Match",
-        "description": "Match colorful candies to create combos and clear the board. Sweet puzzle fun!",
-        "category": "match3",
-        "url": "https://lagged.com/api/play2/candy-match/",
-        "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "basketball-stars",
-        "name": "Basketball Star",
-        "description": "Hit the court and shoot some hoops in this exciting basketball game!",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/basketball-stars/",
-        "thumbnail": "https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "soccer-random",
-        "name": "Soccer Kick",
-        "description": "A fun and random soccer game with changing fields and players. Score to win!",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/soccer-random/",
-        "thumbnail": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "slope",
-        "name": "Slope Ball",
-        "description": "Roll down the slope at high speed! Avoid obstacles and don't fall off the edge.",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/slope/",
-        "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop",
-        "featured": true
-    },
-    {
-        "id": "geometry-dash",
-        "name": "Geometry Jump",
-        "description": "Rhythm-based platforming! Jump and fly through dangerous passages and spiky obstacles.",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/geometry-dash/",
-        "thumbnail": "https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop",
-        "featured": true
-    },
-    {
-        "id": "1v1-lol",
-        "name": "1v1 Battle",
-        "description": "Build defenses and battle opponents in this 1v1 shooting game!",
-        "category": "shooter",
-        "url": "https://lagged.com/api/play2/1v1-lol/",
-        "thumbnail": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "slither-io",
-        "name": "Slither Snake",
-        "description": "Eat orbs to grow longer and become the biggest snake in the arena!",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/slither-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "agar-io",
-        "name": "Agar Cell",
-        "description": "Eat smaller cells and avoid being eaten. Can you become the biggest cell?",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/agar-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "among-us",
-        "name": "Space Mission",
-        "description": "Work together to complete tasks! Find the hidden threat among the crew.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/among-us/",
-        "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "block-builder",
-        "name": "Block Builder",
-        "description": "Build and explore in this classic block-building game. Place and break blocks freely!",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/block-builder/",
-        "thumbnail": "https://images.unsplash.com/photo-1556438096-2089a2a59595?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "happy-wheels",
-        "name": "Happy Rider",
-        "description": "Ragdoll physics madness! Race through obstacle courses with various characters.",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/happy-wheels/",
-        "thumbnail": "https://images.unsplash.com/photo-1544636331-e301106ba6a3?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "flappy-bird",
-        "name": "Flap Wings",
-        "description": "Tap to fly through the pipes! Simple but insanely addictive.",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/flappy-bird/",
-        "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "2048",
-        "name": "2048 Puzzle",
-        "description": "Slide numbered tiles to combine them and reach the 2048 tile!",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/2048/",
-        "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "tetris",
-        "name": "Block Puzzle",
-        "description": "The classic block-stacking puzzle game! Rotate and place tetrominos to clear lines.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/tetris/",
-        "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "crossy-road",
-        "name": "Cross Road",
-        "description": "Why did the chicken cross the road? Find out in this endless arcade hopper!",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/crossy-road/",
-        "thumbnail": "https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "fruit-ninja",
-        "name": "Fruit Slash",
-        "description": "Slice fruits in half with your finger! Don't let them fall, and avoid bombs.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/fruit-ninja/",
-        "thumbnail": "https://images.unsplash.com/photo-1552820728-8b83bb6b2b28?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "cut-the-rope",
-        "name": "Cut Rope",
-        "description": "Feed candy to Om Nom! Cut ropes strategically to collect stars and complete levels.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/cut-the-rope/",
-        "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "angry-birds",
-        "name": "Angry Birdies",
-        "description": "Launch birds at pig structures to destroy them! Use physics to your advantage.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/angry-birds/",
-        "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "doodle-jump",
-        "name": "Doodle Bounce",
-        "description": "Jump from platform to platform and climb as high as you can! Avoid aliens and monsters.",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/doodle-jump/",
-        "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "run-3",
-        "name": "Run Runner 3",
-        "description": "Run through space tunnels and defy gravity! Don't fall into the void.",
-        "category": "running",
-        "url": "https://lagged.com/api/play2/run-3/",
-        "thumbnail": "https://images.unsplash.com/photo-1555695410-7b1dc6d7c5c0?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "bubble-shooter",
-        "name": "Bubble Pop",
-        "description": "Match 3 or more bubbles of the same color to pop them! Clear the board to win.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/bubble-shooter/",
-        "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "8-ball-pool",
-        "name": "8 Ball Billiards",
-        "description": "The classic pool game! Aim, shoot, and sink all your balls before your opponent.",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/8-ball-pool/",
-        "thumbnail": "https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "table-tennis",
-        "name": "Ping Pong Pro",
-        "description": "Fast-paced ping pong action! Serve, smash, and outplay your opponent.",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/table-tennis/",
-        "thumbnail": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "hill-climb-racing",
-        "name": "Hill Climb",
-        "description": "Drive your vehicle through hilly terrains! Upgrade your car and reach the finish.",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/hill-climb-racing/",
-        "thumbnail": "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "traffic-racer",
-        "name": "Traffic Race",
-        "description": "Drive fast on the highway and overtake other cars! Endless racing fun.",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/traffic-racer/",
-        "thumbnail": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "paper-io",
-        "name": "Paper Battle",
-        "description": "Claim as much territory as possible! Draw lines to capture ground and eliminate opponents.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/paper-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "diep-io",
-        "name": "Diep Battle",
-        "description": "Upgrade your tank and destroy shapes and other players! Shape-based .io shooter.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/diep-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "krunker-io",
-        "name": "Krunker FPS",
-        "description": "Fast-paced pixel FPS! Jump, slide, and shoot your way to the top of the leaderboard.",
-        "category": "shooter",
-        "url": "https://lagged.com/api/play2/krunker-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1580327344181-c131031d0a71?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "shellshockers",
-        "name": "Egg Shooter",
-        "description": "Egg-citing FPS! Play as an egg armed with weapons in this cracking multiplayer shooter.",
-        "category": "shooter",
-        "url": "https://lagged.com/api/play2/shellshockers/",
-        "thumbnail": "https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "zombs-royale",
-        "name": "Zombs Battle",
-        "description": "2D battle royale! Drop in, loot weapons, and be the last survivor standing.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/zombs-royale/",
-        "thumbnail": "https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "skribbl-io",
-        "name": "Skribbl Draw",
-        "description": "Draw and guess words in this multiplayer drawing game! Create private rooms with friends.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/skribbl-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "gartic-io",
-        "name": "Gartic Draw",
-        "description": "Draw and guess words with players from around the world! Fun multiplayer drawing game.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/gartic-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "mope-io",
-        "name": "Mope Animal",
-        "description": "Evolve from a mouse to an elephant or dragon! Eat food and climb the food chain.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/mope-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "wormate-io",
-        "name": "Wormate Snake",
-        "description": "Eat food and grow your worm! Sweet power-ups and cute graphics.",
-        "category": "io",
-        "url": "https://lagged.com/api/play2/wormate-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "tank-trouble",
-        "name": "Tank Battle",
-        "description": "Drive a tank through a maze and destroy enemy tanks! Single and multiplayer fun.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/tank-trouble/",
-        "thumbnail": "https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "super-smash-flash",
-        "name": "Battle Arena",
-        "description": "The ultimate battle game! Fight with unique characters across stages.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/super-smash-flash/",
-        "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "fall-guys",
-        "name": "Fall Friends",
-        "description": "Compete in wacky obstacle courses! Be the last bean standing in this battle royale.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/fall-guys/",
-        "thumbnail": "https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "stumble-guys",
-        "name": "Stumble Race",
-        "description": "Knockdown royale! Run through obstacle courses and be the last guy standing.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/stumble-guys/",
-        "thumbnail": "https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "bad-ice-cream",
-        "name": "Bad Ice Game",
-        "description": "Control an ice cream character and freeze enemies! Collect all the fruit in each level.",
-        "category": "action",
-        "url": "https://lagged.com/api/play2/bad-ice-cream/",
-        "thumbnail": "https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "violt-race",
-        "name": "Violet Race",
-        "description": "High-speed racing with cool cars and challenging tracks!",
-        "category": "racing",
-        "url": "https://lagged.com/api/play2/violt-race/",
-        "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "rocket-soccer",
-        "name": "Rocket Soccer",
-        "description": "Drive rocket-powered cars and score epic goals in this soccer derby!",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/rocket-soccer/",
-        "thumbnail": "https://images.unsplash.com/photo-1517466787929-dc4377a1d0d4?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "real-basketball",
-        "name": "Real Hoops",
-        "description": "Realistic basketball simulation! Shoot hoops and improve your skills.",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/real-basketball/",
-        "thumbnail": "https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "desktop-golf",
-        "name": "Desktop Putt",
-        "description": "Relaxing mini-golf right on your desktop! Simple controls, challenging holes.",
-        "category": "sports",
-        "url": "https://lagged.com/api/play2/desktop-golf/",
-        "thumbnail": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "sudoku",
-        "name": "Sudoku Logic",
-        "description": "The classic number placement puzzle! Fill the grid with digits 1-9.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/sudoku/",
-        "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "solitaire",
-        "name": "Card Solitaire",
-        "description": "The classic card game! Arrange cards in descending order alternating colors.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/solitaire/",
-        "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "word-search",
-        "name": "Word Find",
-        "description": "Find hidden words in a grid of letters! Multiple categories and difficulty levels.",
-        "category": "puzzle",
-        "url": "https://lagged.com/api/play2/word-search/",
-        "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "bejeweled",
-        "name": "Bejeweled Gems",
-        "description": "The original match-3 gem game! Swap gems to make matches and score points.",
-        "category": "match3",
-        "url": "https://lagged.com/api/play2/bejeweled/",
-        "thumbnail": "https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "farm-heroes",
-        "name": "Farm Heroes",
-        "description": "Match crops to complete farm-tastic puzzles! Fun match-3 farming adventure.",
-        "category": "match3",
-        "url": "https://lagged.com/api/play2/farm-heroes/",
-        "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "candy-crush",
-        "name": "Candy Match",
-        "description": "Match 3 candies in this sweet puzzle adventure! Thousands of levels to explore.",
-        "category": "match3",
-        "url": "https://lagged.com/api/play2/candy-crush/",
-        "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "clash-of-clans",
-        "name": "Tribe Clash",
-        "description": "Build your village, train troops, and battle other players! Strategic base building.",
-        "category": "strategy",
-        "url": "https://lagged.com/api/play2/clash-of-clans/",
-        "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "clash-royale",
-        "name": "Card Clash",
-        "description": "Real-time strategy card battling! Deploy troops and destroy enemy towers.",
-        "category": "strategy",
-        "url": "https://lagged.com/api/play2/clash-royale/",
-        "thumbnail": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "lordz-io",
-        "name": "Lordz Battle",
-        "description": "Build your medieval empire! Collect gold, build castles, and command armies.",
-        "category": "strategy",
-        "url": "https://lagged.com/api/play2/lordz-io/",
-        "thumbnail": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "sandbox-world",
-        "name": "Sandbox World",
-        "description": "Create and play in immersive 3D sandbox worlds! Explore endless user-generated games.",
-        "category": "arcade",
-        "url": "https://lagged.com/api/play2/sandbox-world/",
-        "thumbnail": "https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop"
-    },
-    {
-        "id": "plants-vs-zombies",
-        "name": "Zombie Garden",
-        "description": "Defend your garden from zombies with an army of plants! Strategic tower defense fun.",
-        "category": "strategy",
-        "url": "https://lagged.com/api/play2/plants-vs-zombies/",
-        "thumbnail": "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"
-    }
+var gameData = [
+    {"id":"subway-runner","name":"Subway Runner","description":"Dash through the subway and dodge oncoming trains! Run, jump, and slide to high scores.","category":"running","url":"https://lagged.com/api/play2/subway-runner/","thumbnail":"https://images.unsplash.com/photo-1476480862126-283b7905e692?w=400&h=250&fit=crop","featured":true},
+    {"id":"temple-escape","name":"Temple Escape","description":"Navigate perilous cliffs and zip lines as you escape the ancient ruins.","category":"running","url":"https://lagged.com/api/play2/temple-escape/","thumbnail":"https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"},
+    {"id":"moto-x3m","name":"Moto X3M","description":"Race your motorcycle through insane obstacle courses. Perform flips and stunts!","category":"racing","url":"https://lagged.com/api/play2/moto-x3m/","thumbnail":"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop","featured":true},
+    {"id":"moto-x3m-spooky","name":"Moto X3M Spooky","description":"The spooky edition of Moto X3M! Ride through haunted tracks on your motorcycle.","category":"racing","url":"https://lagged.com/api/play2/moto-x3m-spooky-land/","thumbnail":"https://images.unsplash.com/photo-1558981806-ec5f85c285ca?w=400&h=250&fit=crop"},
+    {"id":"stick-hook","name":"Stick Hook","description":"Swing from hook to hook like a spider! Simple controls, addictive gameplay.","category":"action","url":"https://lagged.com/api/play2/stickman-hook/","thumbnail":"https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"},
+    {"id":"candy-match","name":"Candy Match","description":"Match colorful candies to create combos and clear the board. Sweet puzzle fun!","category":"match3","url":"https://lagged.com/api/play2/candy-match/","thumbnail":"https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"},
+    {"id":"basketball-star","name":"Basketball Star","description":"Hit the court and shoot some hoops in this exciting basketball game!","category":"sports","url":"https://lagged.com/api/play2/basketball-stars/","thumbnail":"https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"},
+    {"id":"soccer-kick","name":"Soccer Kick","description":"A fun and random soccer game with changing fields and players. Score to win!","category":"sports","url":"https://lagged.com/api/play2/soccer-random/","thumbnail":"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"},
+    {"id":"slope-ball","name":"Slope Ball","description":"Roll down the slope at high speed! Avoid obstacles and do not fall off.","category":"arcade","url":"https://lagged.com/api/play2/slope/","thumbnail":"https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop","featured":true},
+    {"id":"geometry-jump","name":"Geometry Jump","description":"Rhythm-based platforming! Jump and fly through dangerous passages and obstacles.","category":"arcade","url":"https://lagged.com/api/play2/geometry-dash/","thumbnail":"https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop","featured":true},
+    {"id":"battle-1v1","name":"1v1 Battle","description":"Build defenses and battle opponents in this 1v1 shooting game!","category":"shooter","url":"https://lagged.com/api/play2/1v1-lol/","thumbnail":"https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=250&fit=crop"},
+    {"id":"slither-snake","name":"Slither Snake","description":"Eat orbs to grow longer and become the biggest snake in the arena!","category":"io","url":"https://lagged.com/api/play2/slither-io/","thumbnail":"https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"},
+    {"id":"agar-cell","name":"Agar Cell","description":"Eat smaller cells and avoid being eaten. Can you become the biggest?","category":"io","url":"https://lagged.com/api/play2/agar-io/","thumbnail":"https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"},
+    {"id":"space-mission","name":"Space Mission","description":"Work together to complete tasks! Find the hidden threat among the crew.","category":"action","url":"https://lagged.com/api/play2/space-mission/","thumbnail":"https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"},
+    {"id":"block-builder","name":"Block Builder","description":"Build and explore in this classic block-building game. Place and break blocks!","category":"arcade","url":"https://lagged.com/api/play2/block-builder/","thumbnail":"https://images.unsplash.com/photo-1556438096-2089a2a59595?w=400&h=250&fit=crop"},
+    {"id":"happy-rider","name":"Happy Rider","description":"Ragdoll physics madness! Race through obstacle courses with various characters.","category":"racing","url":"https://lagged.com/api/play2/happy-rider/","thumbnail":"https://images.unsplash.com/photo-1544636331-e301106ba6a3?w=400&h=250&fit=crop"},
+    {"id":"flap-wings","name":"Flap Wings","description":"Tap to fly through the pipes! Simple but insanely addictive.","category":"arcade","url":"https://lagged.com/api/play2/flap-wings/","thumbnail":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop"},
+    {"id":"2048-puzzle","name":"2048 Puzzle","description":"Slide numbered tiles to combine them and reach the 2048 tile!","category":"puzzle","url":"https://lagged.com/api/play2/2048/","thumbnail":"https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"},
+    {"id":"block-puzzle","name":"Block Puzzle","description":"The classic block-stacking puzzle game! Rotate and place pieces to clear lines.","category":"puzzle","url":"https://lagged.com/api/play2/block-puzzle/","thumbnail":"https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"},
+    {"id":"cross-road","name":"Cross Road","description":"Why did the chicken cross the road? Find out in this endless arcade hopper!","category":"arcade","url":"https://lagged.com/api/play2/cross-road/","thumbnail":"https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=250&fit=crop"},
+    {"id":"fruit-slash","name":"Fruit Slash","description":"Slice fruits in half with your finger! Do not let them fall, and avoid bombs.","category":"action","url":"https://lagged.com/api/play2/fruit-slash/","thumbnail":"https://images.unsplash.com/photo-1552820728-8b83bb6b2b28?w=400&h=250&fit=crop"},
+    {"id":"cut-rope","name":"Cut Rope","description":"Cut ropes strategically to collect stars and feed the creature. Physics puzzle fun!","category":"puzzle","url":"https://lagged.com/api/play2/cut-rope/","thumbnail":"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"},
+    {"id":"angry-birdies","name":"Angry Birdies","description":"Launch birds at structures to destroy them! Use physics to your advantage.","category":"puzzle","url":"https://lagged.com/api/play2/angry-birdies/","thumbnail":"https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"},
+    {"id":"doodle-bounce","name":"Doodle Bounce","description":"Jump from platform to platform and climb as high as you can! Avoid aliens.","category":"arcade","url":"https://lagged.com/api/play2/doodle-bounce/","thumbnail":"https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"},
+    {"id":"run-runner-3","name":"Run Runner 3","description":"Run through space tunnels and defy gravity! Do not fall into the void.","category":"running","url":"https://lagged.com/api/play2/run-3/","thumbnail":"https://images.unsplash.com/photo-1555695410-7b1dc6d7c5c0?w=400&h=250&fit=crop"},
+    {"id":"bubble-pop","name":"Bubble Pop","description":"Match 3 or more bubbles of the same color to pop them! Clear the board.","category":"puzzle","url":"https://lagged.com/api/play2/bubble-shooter/","thumbnail":"https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"},
+    {"id":"ball-billiards","name":"Ball Billiards","description":"The classic pool game! Aim, shoot, and sink all your balls before opponent.","category":"sports","url":"https://lagged.com/api/play2/ball-billiards/","thumbnail":"https://images.unsplash.com/photo-1552674605-db6ffd4fac2d?w=400&h=250&fit=crop"},
+    {"id":"ping-pong-pro","name":"Ping Pong Pro","description":"Fast-paced ping pong action! Serve, smash, and outplay your opponent.","category":"sports","url":"https://lagged.com/api/play2/table-tennis/","thumbnail":"https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=250&fit=crop"},
+    {"id":"hill-climb","name":"Hill Climb","description":"Drive your vehicle through hilly terrains! Upgrade your car and reach finish.","category":"racing","url":"https://lagged.com/api/play2/hill-climb/","thumbnail":"https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400&h=250&fit=crop"},
+    {"id":"traffic-race","name":"Traffic Race","description":"Drive fast on the highway and overtake other cars! Endless racing fun.","category":"racing","url":"https://lagged.com/api/play2/traffic-racer/","thumbnail":"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop"},
+    {"id":"paper-battle","name":"Paper Battle","description":"Claim territory! Draw lines to capture ground and eliminate opponents.","category":"io","url":"https://lagged.com/api/play2/paper-io/","thumbnail":"https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"},
+    {"id":"diep-battle","name":"Diep Battle","description":"Upgrade your tank and destroy shapes and other players! Shape-based shooter.","category":"io","url":"https://lagged.com/api/play2/diep-io/","thumbnail":"https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"},
+    {"id":"krunker-fps","name":"Krunker FPS","description":"Fast-paced pixel FPS! Jump, slide, and shoot to the top of the leaderboard.","category":"shooter","url":"https://lagged.com/api/play2/krunker-io/","thumbnail":"https://images.unsplash.com/photo-1580327344181-c131031d0a71?w=400&h=250&fit=crop"},
+    {"id":"egg-shooter","name":"Egg Shooter","description":"Egg-citing FPS! Play as an egg armed with weapons in this multiplayer shooter.","category":"shooter","url":"https://lagged.com/api/play2/shellshockers/","thumbnail":"https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=400&h=250&fit=crop"},
+    {"id":"zombs-battle","name":"Zombs Battle","description":"2D battle royale! Drop in, loot weapons, and be the last survivor standing.","category":"io","url":"https://lagged.com/api/play2/zombs-royale/","thumbnail":"https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"},
+    {"id":"skribbl-draw","name":"Skribbl Draw","description":"Draw and guess words in this multiplayer drawing game! Create private rooms.","category":"io","url":"https://lagged.com/api/play2/skribbl-io/","thumbnail":"https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"},
+    {"id":"gartic-draw","name":"Gartic Draw","description":"Draw and guess words with players from around the world! Fun drawing game.","category":"io","url":"https://lagged.com/api/play2/gartic-io/","thumbnail":"https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=250&fit=crop"},
+    {"id":"mope-animal","name":"Mope Animal","description":"Evolve from a mouse to a dragon! Eat food and climb the food chain.","category":"io","url":"https://lagged.com/api/play2/mope-io/","thumbnail":"https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"},
+    {"id":"wormate-snake","name":"Wormate Snake","description":"Eat food and grow your worm! Sweet power-ups and cute graphics.","category":"io","url":"https://lagged.com/api/play2/wormate-io/","thumbnail":"https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"},
+    {"id":"tank-battle","name":"Tank Battle","description":"Drive a tank through a maze and destroy enemy tanks! Single and multiplayer.","category":"action","url":"https://lagged.com/api/play2/tank-trouble/","thumbnail":"https://images.unsplash.com/photo-1612287230202-1ff1d93d2b5a?w=400&h=250&fit=crop"},
+    {"id":"battle-arena","name":"Battle Arena","description":"The ultimate battle game! Fight with unique characters across stages.","category":"action","url":"https://lagged.com/api/play2/battle-arena/","thumbnail":"https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"},
+    {"id":"fall-friends","name":"Fall Friends","description":"Compete in wacky obstacle courses! Be the last bean standing in battle royale.","category":"action","url":"https://lagged.com/api/play2/fall-friends/","thumbnail":"https://images.unsplash.com/photo-1585620385456-4a0a5e906e6f?w=400&h=250&fit=crop"},
+    {"id":"stumble-race","name":"Stumble Race","description":"Knockdown royale! Run through obstacle courses and be the last one standing.","category":"action","url":"https://lagged.com/api/play2/stumble-race/","thumbnail":"https://images.unsplash.com/photo-1542751376-adc38f487a38?w=400&h=250&fit=crop"},
+    {"id":"bad-ice","name":"Bad Ice","description":"Control an ice cream character and freeze enemies! Collect all the fruit.","category":"action","url":"https://lagged.com/api/play2/bad-ice/","thumbnail":"https://images.unsplash.com/photo-1538481193919-7b1739ab85df?w=400&h=250&fit=crop"},
+    {"id":"violet-race","name":"Violet Race","description":"High-speed racing with cool cars and challenging tracks!","category":"racing","url":"https://lagged.com/api/play2/violt-race/","thumbnail":"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop"},
+    {"id":"rocket-soccer","name":"Rocket Soccer","description":"Drive rocket-powered cars and score epic goals in this soccer derby!","category":"sports","url":"https://lagged.com/api/play2/rocket-soccer/","thumbnail":"https://images.unsplash.com/photo-1517466787929-dc4377a1d0d4?w=400&h=250&fit=crop"},
+    {"id":"real-hoops","name":"Real Hoops","description":"Realistic basketball simulation! Shoot hoops and improve your skills.","category":"sports","url":"https://lagged.com/api/play2/real-basketball/","thumbnail":"https://images.unsplash.com/photo-1461896836934-bd45c38f8a75?w=400&h=250&fit=crop"},
+    {"id":"desktop-putt","name":"Desktop Putt","description":"Relaxing mini-golf right on your desktop! Simple controls, challenging holes.","category":"sports","url":"https://lagged.com/api/play2/desktop-golf/","thumbnail":"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=250&fit=crop"},
+    {"id":"sudoku-logic","name":"Sudoku Logic","description":"The classic number placement puzzle! Fill the grid with digits 1-9.","category":"puzzle","url":"https://lagged.com/api/play2/sudoku/","thumbnail":"https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"},
+    {"id":"card-solitaire","name":"Card Solitaire","description":"The classic card game! Arrange cards in descending order alternating colors.","category":"puzzle","url":"https://lagged.com/api/play2/solitaire/","thumbnail":"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"},
+    {"id":"word-find","name":"Word Find","description":"Find hidden words in a grid of letters! Multiple categories and difficulty levels.","category":"puzzle","url":"https://lagged.com/api/play2/word-search/","thumbnail":"https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"},
+    {"id":"gem-match","name":"Gem Match","description":"The original match-3 gem game! Swap gems to make matches and score points.","category":"match3","url":"https://lagged.com/api/play2/gem-match/","thumbnail":"https://images.unsplash.com/photo-1606092195739-c0b4a2e1ae8e?w=400&h=250&fit=crop"},
+    {"id":"farm-match","name":"Farm Match","description":"Match crops to complete farm-tastic puzzles! Fun match-3 farming adventure.","category":"match3","url":"https://lagged.com/api/play2/farm-match/","thumbnail":"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"},
+    {"id":"candy-match-3","name":"Sweet Match","description":"Match 3 sweets in this puzzle adventure! Thousands of levels to explore.","category":"match3","url":"https://lagged.com/api/play2/sweet-match/","thumbnail":"https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"},
+    {"id":"tribe-clash","name":"Tribe Clash","description":"Build your village, train troops, and battle other players! Strategic base building.","category":"strategy","url":"https://lagged.com/api/play2/tribe-clash/","thumbnail":"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=250&fit=crop"},
+    {"id":"card-clash","name":"Card Clash","description":"Real-time strategy card battling! Deploy troops and destroy enemy towers.","category":"strategy","url":"https://lagged.com/api/play2/card-clash/","thumbnail":"https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&h=250&fit=crop"},
+    {"id":"lordz-battle","name":"Lordz Battle","description":"Build your medieval empire! Collect gold, build castles, and command armies.","category":"strategy","url":"https://lagged.com/api/play2/lordz-io/","thumbnail":"https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"},
+    {"id":"sandbox-world","name":"Sandbox World","description":"Create and play in immersive 3D sandbox worlds! Explore endless games.","category":"arcade","url":"https://lagged.com/api/play2/sandbox-world/","thumbnail":"https://images.unsplash.com/photo-1614628906641-397f1752e71c?w=400&h=250&fit=crop"},
+    {"id":"zombie-garden","name":"Zombie Garden","description":"Defend your garden from zombies with an army of plants! Tower defense fun.","category":"strategy","url":"https://lagged.com/api/play2/zombie-garden/","thumbnail":"https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=400&h=250&fit=crop"}
 ];
-        document.getElementById('totalGames').textContent=allGames.length+'+';
-        buildCats();
-        renderGames();
-    }catch(e){
-        document.getElementById('gameGrid').innerHTML='<div class="empty"><div class="empty-icon">&#128533;</div><p>Failed to load games.</p></div>';
-    }
-}
 
 function buildCats(){
-    var cats=[...new Set(allGames.map(function(g){return g.category}).filter(Boolean))];
-    cats.unshift('all');
+    var cats=['all'];
+    var seen={};
+    for(var i=0;i<gameData.length;i++){
+        var c=gameData[i].category;
+        if(c&&!seen[c]){seen[c]=1;cats.push(c)}
+    }
     var html='';
     for(var i=0;i<cats.length;i++){
         var c=cats[i];
-        var cfg=catConfig[c]||{name:c.charAt(0).toUpperCase()+c.slice(1),emoji:'&#127918;'};
+        var cfg=catConfig[c]||{name:c.charAt(0).toUpperCase()+c.slice(1),emoji:'\u{1F3AE}'};
         var active=currentCat===c?' active':'';
-        html+='<button class="cat-btn'+active+'" data-cat="'+c+'" onclick="selectCategory(''+c+'')">'+cfg.emoji+' '+(c==='all'?'All':cfg.name)+'</button>';
+        html+='<button class="cat-btn'+active+'" data-cat="'+c+'" onclick="selectCategory(\''+c+'\')">'+cfg.emoji+' '+(c==='all'?'All':cfg.name)+'</button>';
     }
     document.getElementById('categoriesBar').innerHTML=html;
 }
@@ -1147,7 +349,7 @@ function selectCategory(cat){
 }
 
 function renderGames(){
-    var games=allGames;
+    var games=gameData;
     if(currentCat!=='all')games=games.filter(function(g){return g.category===currentCat});
     if(searchQuery){
         var q=searchQuery.toLowerCase();
@@ -1155,26 +357,34 @@ function renderGames(){
     }
     var grid=document.getElementById('gameGrid');
     if(games.length===0){
-        grid.innerHTML='<div class="empty"><div class="empty-icon">&#128269;</div><p>No games found.</p></div>';
+        grid.innerHTML='<div class="empty"><p style="font-size:48px;margin-bottom:12px">\u{1F50D}</p><p>No games found. Try a different search or category.</p></div>';
         return;
     }
     var html='';
     for(var i=0;i<games.length;i++){
         var g=games[i];
         var cat=(g.category||'other');
-        var thumb=g.thumbnail?'<img class="card-thumb" src="'+g.thumbnail+'" alt="'+escapeHtml(g.name)+'" loading="lazy">':'<div class="card-thumb" style="display:flex;align-items:center;justify-content:center;font-size:32px;">'+(catConfig[cat]||{}).emoji||'&#127918;'+'</div>';
-        html+='<div class="card" onclick="playGame('+allGames.indexOf(g)+')">'+
-            thumb+
+        var cfg=catConfig[cat]||{name:cat,emoji:'\u{1F3AE}'};
+        var thumb=g.thumbnail?'<img class="card-thumb" src="'+g.thumbnail+'" alt="'+escapeHtml(g.name)+'" loading="lazy" onerror="this.style.display=\'none\'">':'<div class="card-thumb" style="display:flex;align-items:center;justify-content:center;font-size:32px;">'+cfg.emoji+'</div>';
+        html+='<div class="card" onclick="playGame('+i+')">'+
+            '<div class="thumb-area">'+thumb+'<div class="cat-badge">'+cfg.name+'</div></div>'+
             '<div class="card-body">'+
             '<div class="card-name">'+escapeHtml(g.name)+'</div>'+
-            '<div class="card-cat">'+cat.charAt(0).toUpperCase()+cat.slice(1)+'</div>'+
+            '<div class="card-desc">'+escapeHtml(g.description||'')+'</div>'+
+            '<button class="play-sm">\u25B6 Play</button>'+
             '</div></div>';
     }
     grid.innerHTML=html;
 }
 
 function playGame(idx){
-    var g=allGames[idx];
+    var games=gameData;
+    if(currentCat!=='all')games=games.filter(function(g){return g.category===currentCat});
+    if(searchQuery){
+        var q=searchQuery.toLowerCase();
+        games=games.filter(function(g){return g.name.toLowerCase().indexOf(q)!==-1||(g.description||'').toLowerCase().indexOf(q)!==-1});
+    }
+    var g=games[idx];
     if(!g)return;
     document.getElementById('modalTitle').textContent=g.name;
     document.getElementById('gameFrame').src=g.url;
@@ -1188,23 +398,24 @@ function closeGame(){
     document.body.style.overflow='';
 }
 
+function toggleFaq(el){
+    el.parentElement.classList.toggle('open');
+}
+
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeGame()});
 document.getElementById('searchInput').addEventListener('input',function(e){
     searchQuery=e.target.value.trim();
     renderGames();
 });
 
-function filterCat(cat){
-    var cards=document.querySelectorAll('.card');
-    document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active')});
-    event.target.classList.add('active');
-    document.getElementById('gridTitle').textContent=cat==='all'?'All Games':event.target.textContent.trim()+' Games';
-    for(var i=0;i<cards.length;i++){
-        var c=cards[i].getAttribute('data-cat');
-        cards[i].style.display=(cat==='all'||c===cat)?'':'none';
-    }
-}
-function openGame(url){window.open(url,'_blank');}
+document.getElementById('gameModal').addEventListener('click',function(e){
+    if(e.target===this)closeGame();
+});
+
+allGames=gameData;
+document.getElementById('totalGames').textContent=gameData.length+'+';
+buildCats();
+renderGames();
 </script>
 </body>
 </html>
